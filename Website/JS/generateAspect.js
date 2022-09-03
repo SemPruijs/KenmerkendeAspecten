@@ -1,12 +1,6 @@
 const aspectUrl = "Content/KenmerkendeAspecten.json"
 
-// Gets json file, returns javascript object
-function jsonToObject(jsonString) {
-    return JSON.parse(jsonString);    
-}
-
-function GenerateAspect(jsonString) {
-    let aspectContent = jsonToObject(jsonString);
+function GenerateAspect(aspectContent) {
 
     console.log(aspectContent.chapters[0].title);
     console.log(aspectContent.chapters[0].aspects);
@@ -20,8 +14,13 @@ function GenerateAspect(jsonString) {
 
 
 
-function renderAspect() {
-    makeAjaxCall("GET", aspectUrl, GenerateAspect);
+async function renderAspect() {
+    const res = await fetch(aspectUrl);
+    const body = await res.json();
+
+    console.log(body);
+
+    GenerateAspect(body);
 }
 
 renderAspect();
