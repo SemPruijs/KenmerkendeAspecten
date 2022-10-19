@@ -1,5 +1,12 @@
 const aspectUrl = "Content/KenmerkendeAspecten.json"
 
+function answerTextfieldOnEnter(event) {
+    if (event.key == "Enter") {
+        // check if correct
+        console.log("Works")
+    }
+}
+
 function SelectedAspect() {
     return 1;
 }
