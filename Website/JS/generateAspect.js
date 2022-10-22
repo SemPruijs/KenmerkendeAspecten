@@ -25,6 +25,12 @@ function randomIndexFromChapter(aspects, chapter) {
     return randomIndexFromList(aspects.chapters[chapter].aspects)
 }
 
+function RandomAspectFromChapter(aspects, chapter) {
+    const randomIndex = randomIndexFromChapter(aspects, chapter)    
+    const aspect = GetAspect(aspects, chapter, randomIndex)
+    return aspect
+}
+
 
 // function GenerateAspect(aspectContent) {
 
@@ -44,8 +50,6 @@ async function GetAspects() {
     const res = await fetch(aspectUrl);
     const body = await res.json();
 
-    console.log(body);
-
     return body;
 }
 
@@ -54,16 +58,14 @@ function GetAspect(aspects, chapter, index) {
 }
 
 
-
 async function renderAspect() {
     var aspects = await asyncAspects
-    const randomIndex = randomIndexFromChapter(aspects, 0)    
-    console.log(randomIndex)
-    const question = GetAspect(aspects, 0, randomIndex).aspect
-    document.getElementById("question").innerHTML = question
+    // const randomIndex = randomIndexFromChapter(aspects, 0)    
+    // const question = GetAspect(aspects, 0, randomIndex).aspect
+    document.getElementById("question").innerHTML = RandomAspectFromChapter(aspects, 0).aspect
 }
 
 renderAspect()
-// console.log(GetRandomNumberBelowNumber(3))
-// console.log(randomIndexFromList(["a", "b", "c"]))
+
+
 
