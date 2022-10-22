@@ -1,5 +1,5 @@
 const aspectUrl = "Content/KenmerkendeAspecten.json"
-const asyncAspects = GetAspects()
+const asyncAspects = getAspects()
 
 
 function answerTextfieldOnEnter(event) {
@@ -10,13 +10,13 @@ function answerTextfieldOnEnter(event) {
 }
 
 // Should be a positive number
-function GetRandomNumberBelowNumber(number) {
+function getRandomNumberBelowNumber(number) {
     return Math.floor(Math.random() * number)
 }
 
 function randomIndexFromList(list) {
     // return Math.floor(Math.random() * list.length)
-    return GetRandomNumberBelowNumber(list.length)
+    return getRandomNumberBelowNumber(list.length)
 }
 
 // TODO: Call this function on a chapter
@@ -25,9 +25,9 @@ function randomIndexFromChapter(aspects, chapter) {
     return randomIndexFromList(aspects.chapters[chapter].aspects)
 }
 
-function RandomAspectFromChapter(aspects, chapter) {
+function randomAspectFromChapter(aspects, chapter) {
     const randomIndex = randomIndexFromChapter(aspects, chapter)    
-    const aspect = GetAspect(aspects, chapter, randomIndex)
+    const aspect = getAspect(aspects, chapter, randomIndex)
     return aspect
 }
 
@@ -46,23 +46,21 @@ function RandomAspectFromChapter(aspects, chapter) {
 
 
 
-async function GetAspects() {
+async function getAspects() {
     const res = await fetch(aspectUrl);
     const body = await res.json();
 
     return body;
 }
 
-function GetAspect(aspects, chapter, index) {
+function getAspect(aspects, chapter, index) {
     return aspects.chapters[chapter].aspects[index]
 }
 
 
 async function renderAspect() {
     var aspects = await asyncAspects
-    // const randomIndex = randomIndexFromChapter(aspects, 0)    
-    // const question = GetAspect(aspects, 0, randomIndex).aspect
-    document.getElementById("question").innerHTML = RandomAspectFromChapter(aspects, 0).aspect
+    document.getElementById("question").innerHTML = randomAspectFromChapter(aspects, 0).aspect
 }
 
 renderAspect()
