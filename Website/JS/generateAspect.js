@@ -3,25 +3,28 @@ const asyncAspects = GetAspects()
 
 
 function answerTextfieldOnEnter(event) {
-    if (event.key == "Enter") {
+    if (event.key === "Enter") {
         // check if correct
         console.log("Works")
     }
 }
 
-function randomIndexFor(list) {
-    return Math.floor(Math.random() * list.length);
+// Should be a positive number
+function GetRandomNumberBelowNumber(number) {
+    return Math.floor(Math.random() * number)
+}
+
+function randomIndexFromList(list) {
+    // return Math.floor(Math.random() * list.length)
+    return GetRandomNumberBelowNumber(list.length)
 }
 
 // TODO: Call this function on a chapter
-async function randomIndexFromChapter(chapter) {
-    var aspects = await asyncAspects
-    return randomIndexFromChapter(aspects.chapters[chapter])
+function randomIndexFromChapter(aspects, chapter) {
+    // return randomIndexFromChapter(aspects.chapters[chapter])
+    return randomIndexFromList(aspects.chapters[chapter].aspects)
 }
 
-function SelectedAspect() {
-    return 1;
-}
 
 // function GenerateAspect(aspectContent) {
 
@@ -54,10 +57,13 @@ function GetAspect(aspects, chapter, index) {
 
 async function renderAspect() {
     var aspects = await asyncAspects
-    document.getElementById("question").innerHTML = GetAspect(aspects, 0, 0).aspect
+    const randomIndex = randomIndexFromChapter(aspects, 0)    
+    console.log(randomIndex)
+    const question = GetAspect(aspects, 0, randomIndex).aspect
+    document.getElementById("question").innerHTML = question
 }
 
 renderAspect()
-
-
+// console.log(GetRandomNumberBelowNumber(3))
+// console.log(randomIndexFromList(["a", "b", "c"]))
 
