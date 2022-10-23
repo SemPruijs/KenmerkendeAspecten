@@ -1,5 +1,6 @@
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
 const ASYNC_ASPECTS = getAspects()
+// var currentAspect = randomAspectFromChapter()
 
 
 function answerTextfieldOnEnter(event) {
