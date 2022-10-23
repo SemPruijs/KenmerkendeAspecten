@@ -1,6 +1,6 @@
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
 const ASYNC_ASPECTS = getAspects()
-// var currentAspect = randomAspectFromChapter()
+
 
 
 function answerTextfieldOnEnter(event) {
@@ -26,10 +26,12 @@ function randomIndexFromChapter(aspects, chapter) {
     return randomIndexFromList(aspects.chapters[chapter].aspects)
 }
 
-function randomAspectFromChapter(aspects, chapter) {
+async function randomAspectFromChapter(chapter) {
+    var aspects = await ASYNC_ASPECTS
     const RANDOM_INDEX = randomIndexFromChapter(aspects, chapter)    
-    const ASPECT = getAspect(aspects, chapter, RANDOM_INDEX)
-    return ASPECT
+    var aspect = getAspect(aspects, chapter, RANDOM_INDEX)
+    console.log(aspect)
+    return aspect
 }
 
 
@@ -59,9 +61,11 @@ function getAspect(aspects, chapter, index) {
 }
 
 
+
+
 async function renderAspect() {
-    var aspects = await ASYNC_ASPECTS
-    document.getElementById("question").innerHTML = randomAspectFromChapter(aspects, 0).value
+    var aspect = await randomAspectFromChapter(0)
+    document.getElementById("question").innerHTML = aspect.value
 }
 
 renderAspect()
