@@ -60,7 +60,7 @@ function getAspect(aspects, chapter, index) {
 
 async function renderAspect() {
     var aspects = await ASYNC_ASPECTS
-    document.getElementById("question").innerHTML = randomAspectFromChapter(aspects, 0).aspect
+    document.getElementById("question").innerHTML = randomAspectFromChapter(aspects, 0).value
 }
 
 renderAspect()

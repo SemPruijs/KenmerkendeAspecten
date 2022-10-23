@@ -5,15 +5,15 @@
             "aspects": [
                 {
                     "id": "1a",
-                    "aspect": "de levenswijze van jager-verzamelaars."
+                    "value": "de levenswijze van jager-verzamelaars."
                 },
                 {
                     "id": "1b",
-                    "aspect": "het ontstaan van landbouw en landbouwsamenlevingen."
+                    "value": "het ontstaan van landbouw en landbouwsamenlevingen."
                 },
                 {
                     "id": "1c",
-                    "aspect": "het ontstaan van landbouw en het ontstaan van de eerste stedelijke gemeenschappen.."
+                    "value": "het ontstaan van landbouw en het ontstaan van de eerste stedelijke gemeenschappen.."
                 }
             ]
         }
