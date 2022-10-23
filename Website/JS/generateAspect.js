@@ -1,12 +1,15 @@
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
 const ASYNC_ASPECTS = getAspects()
-
+var selectedAspect = randomAspectFromChapter(0)
 
 
 function answerTextfieldOnEnter(event) {
     if (event.key === "Enter") {
         // check if correct
         console.log("Works")
+        setAspect()
+        renderAspect()
+        
     }
 }
 
@@ -60,11 +63,14 @@ function getAspect(aspects, chapter, index) {
     return aspects.chapters[chapter].aspects[index]
 }
 
-
+async function setAspect() {
+    selectedAspect = await randomAspectFromChapter(0)
+}
 
 
 async function renderAspect() {
-    var aspect = await randomAspectFromChapter(0)
+    // var aspect = await randomAspectFromChapter(0)
+    var aspect = await selectedAspect
     document.getElementById("question").innerHTML = aspect.value
 }
 
