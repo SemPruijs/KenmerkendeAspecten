@@ -9,7 +9,7 @@ function answerTextfieldOnEnter(event) {
     var userInput = document.getElementById("answerTextfield").value
     if (event.key === "Enter") {
         console.log(isCorrect(selectedAspect, userInput, "id"))
-        console.log(userMessageForCorrectness(isCorrect(selectedAspect, userInput, "id"), selectedAspect, "id"))
+        console.log(messageAboutCorrectness(isCorrect(selectedAspect, userInput, "id"), selectedAspect, "id"))
         showCorrectness = !showCorrectness
         if (showCorrectness) {            
             renderCorrectness()
@@ -34,13 +34,13 @@ function isCorrect(aspect, input, mode) {
     return correctAnswer === input    
 }
 
-function userMessageForCorrectness(correct, aspect, mode) {
+function messageAboutCorrectness(correct, aspect, mode) {
     if (correct) {
-        return "Correct!"
+        return "Correct! Enter voor  volgende."
     } else {
         // mode should represent the type of value that the user is typing.
         var correctAnswer = mode === "value" ? aspect.value : aspect.id
-        return `Fout, goede antwoord: ${correctAnswer}. Enter voor  volgende.`       
+        return `Fout. Goede antwoord: ${correctAnswer}. Enter voor  volgende.`       
     }
 }
 
@@ -110,7 +110,7 @@ async function renderCorrectness(correct, mode) {
 
     var aspect = await selectedAspect
     var correctness = isCorrect(aspect, userInput, "id")
-    var message = userMessageForCorrectness(correctness, aspect, "id")
+    var message = messageAboutCorrectness(correctness, aspect, "id")
 
     document.getElementById("correctness").innerHTML = message
 }
