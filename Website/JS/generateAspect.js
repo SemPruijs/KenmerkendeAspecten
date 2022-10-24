@@ -7,10 +7,16 @@ function answerTextfieldOnEnter(event) {
     if (event.key === "Enter") {
         // check if correct
         console.log("Works")
+        clearTextField()
         setAspect()
         renderAspect()
         
     }
+}
+
+function clearTextField() {
+    var textField = document.getElementById("answerTextfield")
+    textField.value = ""
 }
 
 // Should be a positive number
