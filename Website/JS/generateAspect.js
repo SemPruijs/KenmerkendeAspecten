@@ -5,8 +5,8 @@ var selectedAspect = randomAspectFromChapter(0)
 
 function answerTextfieldOnEnter(event) {
     if (event.key === "Enter") {
-        // check if correct
-        console.log("Works")
+        var userInput = document.getElementById("answerTextfield").value
+        console.log(isCorrect(selectedAspect, userInput, "id"))
         clearTextField()
         setAspect()
         renderAspect()
@@ -17,6 +17,15 @@ function answerTextfieldOnEnter(event) {
 function clearTextField() {
     var textField = document.getElementById("answerTextfield")
     textField.value = ""
+}
+
+function isCorrect(aspect, input, mode) {
+    // mode should represent the type of value that the user is typing.
+    if (mode === "value") {
+        return aspect.value === input
+    } else {
+        return aspect.id === input
+    }
 }
 
 // Should be a positive number
