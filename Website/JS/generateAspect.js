@@ -1,16 +1,24 @@
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
 const ASYNC_ASPECTS = getAspects()
 var selectedAspect = randomAspectFromChapter(0)
+var showCorrectness = false
+
 
 
 function answerTextfieldOnEnter(event) {
+    var userInput = document.getElementById("answerTextfield").value
     if (event.key === "Enter") {
-        var userInput = document.getElementById("answerTextfield").value
         console.log(isCorrect(selectedAspect, userInput, "id"))
         console.log(userMessageForCorrectness(isCorrect(selectedAspect, userInput, "id"), selectedAspect, "id"))
-        clearTextField()
-        setAspect()
-        renderAspect()
+        showCorrectness = !showCorrectness
+        if (showCorrectness) {            
+            renderCorrectness()
+        } else {
+            clearCorrectness()
+            setAspect()
+            renderAspect()
+        }
+        clearTextField()                
         
     }
 }
@@ -95,6 +103,14 @@ async function renderAspect() {
     // var aspect = await randomAspectFromChapter(0)
     var aspect = await selectedAspect
     document.getElementById("question").innerHTML = aspect.value
+}
+
+function renderCorrectness(correct, mode) {
+    document.getElementById("correctness").innerHTML = "Correct!"
+}
+
+function clearCorrectness() {
+    document.getElementById("correctness").innerHTML = ""
 }
 
 renderAspect()
