@@ -105,8 +105,14 @@ async function renderAspect() {
     document.getElementById("question").innerHTML = aspect.value
 }
 
-function renderCorrectness(correct, mode) {
-    document.getElementById("correctness").innerHTML = "Correct!"
+async function renderCorrectness(correct, mode) {
+    var userInput = document.getElementById("answerTextfield").value
+
+    var aspect = await selectedAspect
+    var correctness = isCorrect(aspect, userInput, "id")
+    var message = userMessageForCorrectness(correctness, aspect, "id")
+
+    document.getElementById("correctness").innerHTML = message
 }
 
 function clearCorrectness() {
