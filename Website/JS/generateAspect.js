@@ -69,20 +69,6 @@ async function randomAspectFromChapter(chapter) {
 }
 
 
-// function GenerateAspect(aspectContent) {
-
-//     console.log(aspectContent.chapters[0].title);
-//     console.log(aspectContent.chapters[0].asyncAspects);
-//     console.log(aspectContent.chapters[0].asyncAspects[0].id);
-//     console.log(aspectContent.chapters[0].asyncAspects[0].aspect);
-
-//     document.getElementById("question").innerHTML = aspectContent.chapters[0].asyncAspects[SelectedAspect()].aspect;
-    
-//     // console.log(aspectContent.chapters[0][0].aspect);
-// }
-
-
-
 async function getAspects() {
     const RES = await fetch(ASPECT_URL);
     const BODY = await RES.json();
