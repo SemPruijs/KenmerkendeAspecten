@@ -7,6 +7,7 @@ function answerTextfieldOnEnter(event) {
     if (event.key === "Enter") {
         var userInput = document.getElementById("answerTextfield").value
         console.log(isCorrect(selectedAspect, userInput, "id"))
+        console.log(userMessageForCorrectness(isCorrect(selectedAspect, userInput, "id"), selectedAspect, "id"))
         clearTextField()
         setAspect()
         renderAspect()
@@ -19,12 +20,19 @@ function clearTextField() {
     textField.value = ""
 }
 
-function isCorrect(aspect, input, mode) {
-    // mode should represent the type of value that the user is typing.
-    if (mode === "value") {
-        return aspect.value === input
+function isCorrect(aspect, input, mode) {    
+    // mode should represent the type of value that the user is typing.    var 
+    var correctAnswer = mode === "value" ? aspect.value : aspect.id
+    return correctAnswer === input    
+}
+
+function userMessageForCorrectness(correct, aspect, mode) {
+    if (correct) {
+        return "Correct!"
     } else {
-        return aspect.id === input
+        // mode should represent the type of value that the user is typing.
+        var correctAnswer = mode === "value" ? aspect.value : aspect.id
+        return `Fout, goede antwoord: ${correctAnswer}. Enter voor  volgende.`       
     }
 }
 
