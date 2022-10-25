@@ -9,12 +9,14 @@ function answerTextfieldOnEnter(event) {
     if (event.key === "Enter") {
         let userInput = document.getElementById("answerTextfield").value
         clearTextField()                
-        showCorrectness = !showCorrectness
-        if (showCorrectness) {            
+        // showCorrectness = !showCorrectness
+        if (!showCorrectness) {            
+            showCorrectness = true
             renderCorrectness(userInput, "id")
-        } else {
-            clearCorrectness()
             setAspect()
+        } else {
+            showCorrectness = false
+            clearCorrectness()
             renderAspect()
         }
         
