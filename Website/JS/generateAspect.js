@@ -16,7 +16,7 @@ function answerTextfieldOnEnter(event) {
             setAspect()
         } else {
             showCorrectness = false
-            clearCorrectness()
+            hideCorrectness()
             renderAspect()
         }
         
@@ -100,7 +100,7 @@ async function renderCorrectness(userInput, mode) {
     document.getElementById("correctness").innerHTML = message
 }
 
-function clearCorrectness() {
+function hideCorrectness() {
     document.getElementById("correctness").innerHTML = ""
 }
 
