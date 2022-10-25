@@ -6,19 +6,17 @@ var showCorrectness = false
 
 
 function answerTextfieldOnEnter(event) {
-    var userInput = document.getElementById("answerTextfield").value
     if (event.key === "Enter") {
-        console.log(isCorrect(selectedAspect, userInput, "id"))
-        console.log(messageAboutCorrectness(isCorrect(selectedAspect, userInput, "id"), selectedAspect, "id"))
+        let userInput = document.getElementById("answerTextfield").value
+        clearTextField()                
         showCorrectness = !showCorrectness
         if (showCorrectness) {            
-            renderCorrectness()
+            renderCorrectness(userInput, "id")
         } else {
             clearCorrectness()
             setAspect()
             renderAspect()
         }
-        clearTextField()                
         
     }
 }
@@ -91,11 +89,10 @@ async function renderAspect() {
     document.getElementById("question").innerHTML = aspect.value
 }
 
-async function renderCorrectness(correct, mode) {
-    var userInput = document.getElementById("answerTextfield").value
-
+// TODO: Saparate rendering and setting
+async function renderCorrectness(userInput, mode) {
     var aspect = await selectedAspect
-    var correctness = isCorrect(aspect, userInput, "id")
+    var correctness = isCorrect(aspect, userInput, mode)
     var message = messageAboutCorrectness(correctness, aspect, "id")
 
     document.getElementById("correctness").innerHTML = message
