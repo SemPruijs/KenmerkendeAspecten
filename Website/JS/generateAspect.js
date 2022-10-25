@@ -1,7 +1,7 @@
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
 const ASYNC_ASPECTS = getAspects()
 var selectedAspect = randomAspectFromChapter(0)
-var showCorrectness = false
+var showingCorrectness = false
 
 
 
@@ -10,12 +10,12 @@ function answerTextfieldOnEnter(event) {
         let userInput = document.getElementById("answerTextfield").value
         clearTextField()                
         // showCorrectness = !showCorrectness
-        if (!showCorrectness) {            
-            showCorrectness = true
+        if (!showingCorrectness) {            
+            showingCorrectness = true
             renderCorrectness(userInput, "id")
             setAspect()
         } else {
-            showCorrectness = false
+            showingCorrectness = false
             hideCorrectness()
             renderAspect()
         }
