@@ -1,7 +1,7 @@
-import { Aspect } from "./model"
+import { Aspect, Chapter } from "./model"
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
 const ASYNC_ASPECTS = getAspects()
-var selectedAspect = randomAspectFromChapter(0)
+var selectedAspect: Aspect = randomAspectFromChapter(0)
 var showingCorrectness = false
 
 
@@ -61,7 +61,7 @@ function randomIndexFromChapter(aspects, chapter) {
     return randomIndexFromList(aspects.chapters[chapter].aspects)
 }
 
-async function randomAspectFromChapter(chapter) {
+async function randomAspectFromChapter(chapter): Aspect {
     var aspects = await ASYNC_ASPECTS
     const RANDOM_INDEX = randomIndexFromChapter(aspects, chapter)    
     var aspect = getAspect(aspects, chapter, RANDOM_INDEX)
