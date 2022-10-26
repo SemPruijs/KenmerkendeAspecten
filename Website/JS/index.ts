@@ -1,3 +1,4 @@
+import { Aspect } from "./model"
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
 const ASYNC_ASPECTS = getAspects()
 var selectedAspect = randomAspectFromChapter(0)
@@ -28,7 +29,7 @@ function clearTextField() {
     textField.value = ""
 }
 
-function isCorrect(aspect, input, mode) {    
+function isCorrect(aspect:Aspect, input, mode) {    
     // mode should represent the type of value that the user is typing.    var 
     var correctAnswer = mode === "value" ? aspect.value : aspect.id
     return correctAnswer === input    
