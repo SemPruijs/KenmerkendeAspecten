@@ -2,6 +2,8 @@
 
 ## priority
 - [ ] Add types to all functions in index.ts
+- [ ] Change var to const and state to let
+- [ ] Apply naming correct convensions to local constants
 - [ ] Turn off js in typescript compiler settings
 
 ## Important
@@ -14,5 +16,6 @@
 - [ ] Fav Icon
 - [ ] Link to repo
 - [ ] Better documentation in readme.md
+- [ ] Remvoe DS_Store
 
  
