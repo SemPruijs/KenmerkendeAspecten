@@ -16,6 +16,6 @@
 - [ ] Fav Icon
 - [ ] Link to repo
 - [ ] Better documentation in readme.md
-- [ ] Remvoe DS_Store
+- [x] Remvoe DS_Store
 
  
