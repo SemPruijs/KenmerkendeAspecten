@@ -18,4 +18,6 @@
 - [ ] Better documentation in readme.md
 - [x] Remvoe DS_Store
 
- 
+## Publish
+- [ ] turn on github pages
+- [ ] Add domain 
