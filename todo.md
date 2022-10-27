@@ -2,7 +2,7 @@
 
 ## priority
 - [ ] Add types to all functions in index.ts
-- [ ] Change var to const and state to let
+- [x] Change var to const and state to let
 - [ ] Apply naming correct convensions to local constants
 - [ ] Turn off js in typescript compiler settings
 

@@ -40,7 +40,7 @@ function messageAboutCorrectness(correct, aspect, mode) {
         return "Correct! Enter voor  volgende."
     } else {
         // mode should represent the type of value that the user is typing.
-        var correctAnswer = mode === "value" ? aspect.value : aspect.id
+        let correctAnswer = mode === "value" ? aspect.value : aspect.id
         return `Fout. Goede antwoord: ${correctAnswer}. Enter voor  volgende.`       
     }
 }
@@ -62,9 +62,9 @@ function randomIndexFromChapter(aspects, chapter) {
 }
 
 function randomAspectFromChapter(chapter): Aspect {
-    var aspects = ASYNC_ASPECTS
+    const aspects = ASYNC_ASPECTS
     const RANDOM_INDEX = randomIndexFromChapter(aspects, chapter)    
-    var aspect = getAspect(aspects, chapter, RANDOM_INDEX)
+    const aspect = getAspect(aspects, chapter, RANDOM_INDEX)
     console.log(aspect)
     return aspect
 }
@@ -88,15 +88,15 @@ function setAspect() {
 
 function renderAspect() {
     // var aspect = await randomAspectFromChapter(0)
-    var aspect = selectedAspect
+    const aspect = selectedAspect
     document.getElementById("question").innerHTML = aspect.value
 }
 
 // TODO: Saparate rendering and setting
 function renderCorrectness(userInput, mode) {
-    var aspect = selectedAspect
-    var correctness = isCorrect(aspect, userInput, mode)
-    var message = messageAboutCorrectness(correctness, aspect, "id")
+    const aspect = selectedAspect
+    const correctness = isCorrect(aspect, userInput, mode)
+    const message = messageAboutCorrectness(correctness, aspect, "id")
 
     document.getElementById("correctness").innerHTML = message
 }
