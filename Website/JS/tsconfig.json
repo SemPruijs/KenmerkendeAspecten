@@ -2,6 +2,6 @@
     "compilerOptions": {
         "target": "esnext",
         "watch": true,
-        "lib": ["DOM", "es2021.intl"]
+        "lib": ["DOM", "es2021.intl", "es5"]
     }
 }

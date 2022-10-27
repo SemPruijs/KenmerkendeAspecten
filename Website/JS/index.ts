@@ -1,14 +1,14 @@
 import { Aspect, Chapter } from "./model"
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
 const ASYNC_ASPECTS = getAspects()
-var selectedAspect: Aspect = randomAspectFromChapter(0)
-var showingCorrectness = false
+let selectedAspect: Aspect = randomAspectFromChapter(0)
+let showingCorrectness = false
 
 
 
 function answerTextfieldOnEnter(event) {
     if (event.key === "Enter") {
-        let userInput = document.getElementById("answerTextfield").value
+        const userInput = (document.getElementById("answerTextfield") as HTMLInputElement).value
         clearTextField()                
         // showCorrectness = !showCorrectness
         if (!showingCorrectness) {            
@@ -25,13 +25,13 @@ function answerTextfieldOnEnter(event) {
 }
 
 function clearTextField() {
-    var textField = document.getElementById("answerTextfield")
+    let textField = (document.getElementById("answerTextfield") as HTMLInputElement)
     textField.value = ""
 }
 
 function isCorrect(aspect:Aspect, input, mode) {    
     // mode should represent the type of value that the user is typing.    var 
-    var correctAnswer = mode === "value" ? aspect.value : aspect.id
+    const correctAnswer = mode === "value" ? aspect.value : aspect.id
     return correctAnswer === input    
 }
 
@@ -61,8 +61,8 @@ function randomIndexFromChapter(aspects, chapter) {
     return randomIndexFromList(aspects.chapters[chapter].aspects)
 }
 
-async function randomAspectFromChapter(chapter): Aspect {
-    var aspects = await ASYNC_ASPECTS
+function randomAspectFromChapter(chapter): Aspect {
+    var aspects = ASYNC_ASPECTS
     const RANDOM_INDEX = randomIndexFromChapter(aspects, chapter)    
     var aspect = getAspect(aspects, chapter, RANDOM_INDEX)
     console.log(aspect)
@@ -81,20 +81,20 @@ function getAspect(aspects, chapter, index) {
     return aspects.chapters[chapter].aspects[index]
 }
 
-async function setAspect() {
-    selectedAspect = await randomAspectFromChapter(0)
+function setAspect() {
+    selectedAspect = randomAspectFromChapter(0)
 }
 
 
-async function renderAspect() {
+function renderAspect() {
     // var aspect = await randomAspectFromChapter(0)
-    var aspect = await selectedAspect
+    var aspect = selectedAspect
     document.getElementById("question").innerHTML = aspect.value
 }
 
 // TODO: Saparate rendering and setting
-async function renderCorrectness(userInput, mode) {
-    var aspect = await selectedAspect
+function renderCorrectness(userInput, mode) {
+    var aspect = selectedAspect
     var correctness = isCorrect(aspect, userInput, mode)
     var message = messageAboutCorrectness(correctness, aspect, "id")
 
