@@ -1,6 +1,6 @@
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
 let ASPECTS: [ Chapter] | null = null
-let selectedAspect: Aspect = null
+let selectedAspect: Aspect | null = null
 
 getAspects()
     .then((aspects)=> {
@@ -22,11 +22,11 @@ interface Chapter {
 }
 
 
-function answerTextfieldOnEnter(event) {
+function answerTextfieldOnEnter(event): void {
     if (event.key === "Enter") {
         const userInput = (document.getElementById("answerTextfield") as HTMLInputElement).value
         clearTextField()                
-        // showCorrectness = !showCorrectness
+
         if (!showingCorrectness) {            
             showingCorrectness = true
             renderCorrectness(userInput, "id")
@@ -35,23 +35,22 @@ function answerTextfieldOnEnter(event) {
             showingCorrectness = false
             hideCorrectness()
             renderAspect()
-        }
-        
+        }        
     }
 }
 
-function clearTextField() {
+function clearTextField(): void {
     let textField = (document.getElementById("answerTextfield") as HTMLInputElement)
     textField.value = ""
 }
 
-function isCorrect(aspect:Aspect, input, mode) {    
+function isCorrect(aspect:Aspect, input:string, mode): boolean {    
     // mode should represent the type of value that the user is typing.    var 
     const correctAnswer = mode === "value" ? aspect.value : aspect.id
     return correctAnswer === input    
 }
 
-function messageAboutCorrectness(correct, aspect, mode) {
+function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode): string {
     if (correct) {
         return "Correct! Enter voor  volgende."
     } else {
@@ -62,32 +61,31 @@ function messageAboutCorrectness(correct, aspect, mode) {
 }
 
 // Should be a positive number
-function getRandomNumberBelowNumber(number) {
+// TODO: Change type to Int
+function getRandomNumberBelowNumber(number: number): number {
     return Math.floor(Math.random() * number)
 }
 
-function randomIndexFromList(list) {
-    // return Math.floor(Math.random() * list.length)
+function randomIndexFromList(list): number {
     return getRandomNumberBelowNumber(list.length)
 }
 
 // TODO: Call this function on a chapter
-function randomIndexFromChapter(aspects, chapter) {
-    // return randomIndexFromChapter(aspects.chapters[chapter])
+function randomIndexFromChapter(aspects, chapter: number): number {
     return randomIndexFromList(aspects.chapters[chapter].aspects)
 }
 
-function randomAspectFromChapter(chapter): Aspect {
-    const aspects = ASPECTS
-    const RANDOM_INDEX = randomIndexFromChapter(aspects, chapter)    
-    const aspect = getAspect(aspects, chapter, RANDOM_INDEX)
+// const aspects = ASPECTS
+// TODO: Make this function pure
+function randomAspectFromChapter(chapter: number): Aspect {
+    const RANDOM_INDEX = randomIndexFromChapter(ASPECTS, chapter)    
+    const aspect = getAspect(ASPECTS, chapter, RANDOM_INDEX)
     console.log(aspect)
     return aspect
 }
 
 
-async function 
-getAspects() {
+async function getAspects() {
     const RES = await fetch(ASPECT_URL);
     const BODY = await RES.json();
 
