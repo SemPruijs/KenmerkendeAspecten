@@ -5,7 +5,7 @@ let selectedAspect: Aspect = null
 getAspects()
     .then((aspects)=> {
         ASYNC_ASPECTS = aspects
-        selectedAspect = randomAspectFromChapter(0)
+        selectedAspect = randomAspectFromChapter(1)
         renderAspect()
     })
 
@@ -98,12 +98,11 @@ function getAspect(aspects, chapter, index) {
 }
 
 function setAspect() {
-    selectedAspect = randomAspectFromChapter(0)
+    selectedAspect = randomAspectFromChapter(1)
 }
 
 
 function renderAspect() {
-    // var aspect = await randomAspectFromChapter(0)
     const aspect = selectedAspect
     document.getElementById("question").innerHTML = aspect.value
 }

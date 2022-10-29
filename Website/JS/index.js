@@ -40,7 +40,7 @@ var selectedAspect = null;
 getAspects()
     .then(function (aspects) {
     ASYNC_ASPECTS = aspects;
-    selectedAspect = randomAspectFromChapter(0);
+    selectedAspect = randomAspectFromChapter(1);
     renderAspect();
 });
 var showingCorrectness = false;
@@ -120,10 +120,9 @@ function getAspect(aspects, chapter, index) {
     return aspects.chapters[chapter].aspects[index];
 }
 function setAspect() {
-    selectedAspect = randomAspectFromChapter(0);
+    selectedAspect = randomAspectFromChapter(1);
 }
 function renderAspect() {
-    // var aspect = await randomAspectFromChapter(0)
     var aspect = selectedAspect;
     document.getElementById("question").innerHTML = aspect.value;
 }

@@ -1,7 +1,7 @@
 {
     "chapters": [
         {
-            "title": "1",
+            "title": "1 De tijd van jagers en boeren",
             "aspects": [
                 {
                     "id": "1a",
@@ -14,6 +14,31 @@
                 {
                     "id": "1c",
                     "value": "het ontstaan van landbouw en het ontstaan van de eerste stedelijke gemeenschappen."
+                }
+            ]
+        },
+        {
+            "title": "2 De tijd van Grieken en Romeinen ",
+            "aspects": [
+                {
+                    "id": "2a",
+                    "value": "de ontwikkeling van wetenschappelijk denken en het denken over burgerschap en politiek in de Griekse stadstaat."
+                },
+                {
+                    "id": "2b",
+                    "value": "de klassieke vormentaal van de Grieks-Romeinse cultuur."
+                },
+                {
+                    "id": "2c",
+                    "value": "de groei van het Romeinse imperium waardoor de Grieks-Romeinse cultuur zich in Europa verspreidde."
+                },
+                {
+                    "id": "2d",
+                    "value": "de confrontatie tussen de Grieks-Romeinse cultuur en de Germaanse cultuur van Noordwest-Europa."
+                },
+                {
+                    "id": "2e",
+                    "value": "de ontwikkeling van het jodendom en het christendom als de eerste monotheïstische godsdiensten."
                 }
             ]
         }
