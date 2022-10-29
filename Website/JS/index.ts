@@ -1,5 +1,5 @@
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
-let ASPECTS = null
+let ASPECTS: [ Chapter] | null = null
 let selectedAspect: Aspect = null
 
 getAspects()
