@@ -1,10 +1,10 @@
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
-let ASYNC_ASPECTS = null
+let ASPECTS = null
 let selectedAspect: Aspect = null
 
 getAspects()
     .then((aspects)=> {
-        ASYNC_ASPECTS = aspects
+        ASPECTS = aspects
         selectedAspect = randomAspectFromChapter(1)
         renderAspect()
     })
@@ -78,7 +78,7 @@ function randomIndexFromChapter(aspects, chapter) {
 }
 
 function randomAspectFromChapter(chapter): Aspect {
-    const aspects = ASYNC_ASPECTS
+    const aspects = ASPECTS
     const RANDOM_INDEX = randomIndexFromChapter(aspects, chapter)    
     const aspect = getAspect(aspects, chapter, RANDOM_INDEX)
     console.log(aspect)
@@ -86,7 +86,8 @@ function randomAspectFromChapter(chapter): Aspect {
 }
 
 
-async function getAspects() {
+async function 
+getAspects() {
     const RES = await fetch(ASPECT_URL);
     const BODY = await RES.json();
 
