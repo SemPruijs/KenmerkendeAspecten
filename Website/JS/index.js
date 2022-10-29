@@ -35,11 +35,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var ASPECT_URL = "Content/KenmerkendeAspecten.json";
-var ASYNC_ASPECTS = null;
+var ASPECTS = null;
 var selectedAspect = null;
 getAspects()
     .then(function (aspects) {
-    ASYNC_ASPECTS = aspects;
+    ASPECTS = aspects;
     selectedAspect = randomAspectFromChapter(1);
     renderAspect();
 });
@@ -94,7 +94,7 @@ function randomIndexFromChapter(aspects, chapter) {
     return randomIndexFromList(aspects.chapters[chapter].aspects);
 }
 function randomAspectFromChapter(chapter) {
-    var aspects = ASYNC_ASPECTS;
+    var aspects = ASPECTS;
     var RANDOM_INDEX = randomIndexFromChapter(aspects, chapter);
     var aspect = getAspect(aspects, chapter, RANDOM_INDEX);
     console.log(aspect);
