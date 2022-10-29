@@ -1,9 +1,25 @@
-import { Aspect, Chapter } from "./model"
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
-const ASYNC_ASPECTS = getAspects()
-let selectedAspect: Aspect = randomAspectFromChapter(0)
+let ASYNC_ASPECTS = null
+let selectedAspect: Aspect = null
+
+getAspects()
+    .then((aspects)=> {
+        ASYNC_ASPECTS = aspects
+        selectedAspect = randomAspectFromChapter(0)
+        renderAspect()
+    })
+
 let showingCorrectness = false
 
+interface Aspect {
+    id: string,
+    value: string
+}
+
+interface Chapter {
+    title: string,
+    aspects: [Aspect]
+}
 
 
 function answerTextfieldOnEnter(event) {
@@ -104,8 +120,6 @@ function renderCorrectness(userInput, mode) {
 function hideCorrectness() {
     document.getElementById("correctness").innerHTML = ""
 }
-
-renderAspect()
 
 
 

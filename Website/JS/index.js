@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,10 +34,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
 var ASPECT_URL = "Content/KenmerkendeAspecten.json";
-var ASYNC_ASPECTS = getAspects();
-var selectedAspect = randomAspectFromChapter(0);
+var ASYNC_ASPECTS = null;
+var selectedAspect = null;
+getAspects()
+    .then(function (aspects) {
+    ASYNC_ASPECTS = aspects;
+    selectedAspect = randomAspectFromChapter(0);
+    renderAspect();
+});
 var showingCorrectness = false;
 function answerTextfieldOnEnter(event) {
     if (event.key === "Enter") {
@@ -133,4 +137,3 @@ function renderCorrectness(userInput, mode) {
 function hideCorrectness() {
     document.getElementById("correctness").innerHTML = "";
 }
-renderAspect();
