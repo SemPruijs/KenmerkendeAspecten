@@ -71,7 +71,7 @@ function getRandomNumberBelowNumber(number: number): number {
     return Math.floor(Math.random() * number)
 }
 
-function randomIndexFromList(list): number {
+function randomIndexFromList(list: any): number {
     return getRandomNumberBelowNumber(list.length)
 }
 
@@ -97,22 +97,22 @@ async function getAspects() {
     return BODY;
 }
 
-function getAspect(aspects, chapter, index) {
+function getAspect(aspects, chapter: number, index: number): Aspect {
     return aspects.chapters[chapter].aspects[index]
 }
 
-function setAspect() {
+function setAspect():void {
     selectedAspect = randomAspectFromChapter(1)
 }
 
 
-function renderAspect() {
+function renderAspect():void {
     const aspect = selectedAspect
     document.getElementById("question").innerHTML = aspect.value
 }
 
 // TODO: Saparate rendering and setting
-function renderCorrectness(userInput, mode:Mode) {
+function renderCorrectness(userInput, mode:Mode):void {
     const aspect = selectedAspect
     const correctness = isCorrect(aspect, userInput, mode)
     const message = messageAboutCorrectness(correctness, aspect, "id")
@@ -120,7 +120,7 @@ function renderCorrectness(userInput, mode:Mode) {
     document.getElementById("correctness").innerHTML = message
 }
 
-function hideCorrectness() {
+function hideCorrectness():void {
     document.getElementById("correctness").innerHTML = ""
 }
 
