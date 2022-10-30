@@ -21,6 +21,12 @@ interface Chapter {
     aspects: [Aspect]
 }
 
+// mode should represent the type of value that the user is typing.   
+enum Mode {
+    Id,
+    Value
+}
+
 
 function answerTextfieldOnEnter(event): void {
     if (event.key === "Enter") {
@@ -29,7 +35,7 @@ function answerTextfieldOnEnter(event): void {
 
         if (!showingCorrectness) {            
             showingCorrectness = true
-            renderCorrectness(userInput, "id")
+            renderCorrectness(userInput, Mode.Id)
             setAspect()
         } else {
             showingCorrectness = false
@@ -44,9 +50,8 @@ function clearTextField(): void {
     textField.value = ""
 }
 
-function isCorrect(aspect:Aspect, input:string, mode): boolean {    
-    // mode should represent the type of value that the user is typing.    var 
-    const correctAnswer = mode === "value" ? aspect.value : aspect.id
+function isCorrect(aspect:Aspect, input:string, mode: Mode): boolean {        
+    const correctAnswer = mode === Mode.Value ? aspect.value : aspect.id
     return correctAnswer === input    
 }
 
@@ -107,7 +112,7 @@ function renderAspect() {
 }
 
 // TODO: Saparate rendering and setting
-function renderCorrectness(userInput, mode) {
+function renderCorrectness(userInput, mode:Mode) {
     const aspect = selectedAspect
     const correctness = isCorrect(aspect, userInput, mode)
     const message = messageAboutCorrectness(correctness, aspect, "id")
