@@ -45,8 +45,7 @@ de verspreiding van het christendom in geheel Europa.
 ontstaan en verspreiding van de islam.
 
 3c
-de vrijwel volledige vervanging in West-Europa van de
-agrarisch-urbane cultuur door een zelfvoorzienende agrarische cultuur, georganiseerd via hofstelsel en horigheid.
+de vrijwel volledige vervanging in West-Europa van de agrarisch-urbane cultuur door een zelfvoorzienende agrarische cultuur, georganiseerd via hofstelsel en horigheid.
 
 3d
 het ontstaan van feodale verhoudingen in het bestuur.
@@ -66,7 +65,6 @@ zelfstandigheid van steden.
 4c
 het conflict in de christelijke wereld over de vraag of de
 wereldlijke dan wel de geestelijke macht het primaat behoorde te hebben.
-
 
 4d
 de expansie van de christelijke wereld naar buiten toe, onder andere

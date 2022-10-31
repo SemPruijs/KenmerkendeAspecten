@@ -41,6 +41,27 @@
                     "value": "de ontwikkeling van het jodendom en het christendom als de eerste monotheïstische godsdiensten."
                 }
             ]
+        },
+        {
+            "title": "3 De tijd van monniken en ridders.",
+            "aspects": [
+                {
+                    "id": "3a",
+                    "value": "de verspreiding van het christendom in geheel Europa."
+                },
+                {
+                    "id": "3b",
+                    "value": "ontstaan en verspreiding van de islam."
+                },
+                {
+                    "id": "3c",
+                    "value": "de vrijwel volledige vervanging in West-Europa van de agrarisch-urbane cultuur door een zelfvoorzienende agrarische cultuur, georganiseerd via hofstelsel en horigheid."
+                },
+                {
+                    "id": "3d",
+                    "value": "het ontstaan van feodale verhoudingen in het bestuur."
+                }
+            ]
         }
     ]
 }
