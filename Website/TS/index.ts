@@ -75,6 +75,7 @@ function randomIndexFromList(list: any): number {
     return getRandomNumberBelowNumber(list.length)
 }
 
+
 // TODO: Call this function on a chapter
 function randomIndexFromChapter(aspects, chapter: number): number {
     return randomIndexFromList(aspects.chapters[chapter].aspects)
@@ -87,6 +88,10 @@ function randomAspectFromChapter(chapter: number): Aspect {
     const aspect = getAspect(ASPECTS, chapter, RANDOM_INDEX)
     console.log(aspect)
     return aspect
+}
+
+function RandomAspectFromChapter0(chapter: Chapter): Aspect {
+    return chapter.aspects[Math.floor(Math.random() * chapter.aspects.length)]
 }
 
 
