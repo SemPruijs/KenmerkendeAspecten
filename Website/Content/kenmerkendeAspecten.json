@@ -62,6 +62,31 @@
                     "value": "het ontstaan van feodale verhoudingen in het bestuur."
                 }
             ]
+        },
+        {
+            "title": "4 De tijd van steden en staten",
+            "aspects": [
+                {
+                    "id": "4a",
+                    "value": "de opkomst van handel en ambacht die de basis legde voor het herleven van een agrarisch-urbane samenleving."
+                },
+                {
+                    "id": "4b",
+                    "value": "de opkomst van de stedelijke burgerij en de toenemende zelfstandigheid van steden."
+                },
+                {
+                    "id": "4c",
+                    "value": "het conflict in de christelijke wereld over de vraag of de wereldlijke dan wel de geestelijke macht het primaat behoorde te hebben."
+                },
+                {
+                    "id": "4d",
+                    "value": "de expansie van de christelijke wereld naar buiten toe, onder andere in de vorm van de kruistochten. "
+                },
+                {
+                    "id": "4e",
+                    "value": "het begin van staatsvorming en centralisatie. "
+                }
+            ]
         }
     ]
 }
