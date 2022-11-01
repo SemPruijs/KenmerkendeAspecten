@@ -5,7 +5,7 @@ let CHAPTERS: Array<Chapter> | null = null
 getChapters() 
     .then((chapters: [Chapter]) => {
         CHAPTERS = chapters
-        selectedAspect = RandomAspectFromChapter0(chapters[0])
+        selectedAspect = RandomAspectFromChapter(chapters[0])
         console.log(selectedAspect)        
         renderAspect()
     })
@@ -61,13 +61,12 @@ function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode): string 
     if (correct) {
         return "Correct! Enter voor  volgende."
     } else {
-        // mode should represent the type of value that the user is typing.
         let correctAnswer = mode === "value" ? aspect.value : aspect.id
         return `Fout. Goede antwoord: ${correctAnswer}. Enter voor  volgende.`       
     }
 }
 
-function RandomAspectFromChapter0(chapter: Chapter): Aspect {
+function RandomAspectFromChapter(chapter: Chapter): Aspect {
     return chapter.aspects[Math.floor(Math.random() * chapter.aspects.length)]
 }
 
@@ -83,7 +82,7 @@ function getAspect(aspects, chapter: number, index: number): Aspect {
 }
 
 function setAspect():void {
-    selectedAspect = RandomAspectFromChapter0(CHAPTERS[0])
+    selectedAspect = RandomAspectFromChapter(CHAPTERS[0])
 }
 
 
