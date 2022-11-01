@@ -1,4 +1,5 @@
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
+const selectedChapters: Array<number> = [0, 1, 2]
 let selectedAspect: Aspect | null = null
 let CHAPTERS: Array<Chapter> | null = null
 let showingCorrectness = false
@@ -33,8 +34,16 @@ async function getChapters(): Promise<[Chapter]> {
     return body.chapters;
 }
 
-function RandomAspectFromChapter(chapter: Chapter): Aspect {
+function randomAspectFromChapter(chapter: Chapter): Aspect {
     return chapter.aspects[Math.floor(Math.random() * chapter.aspects.length)]
+}
+
+function randomAspectFromChapters(chapters: Array<number>): Aspect {
+    const randomIndex = chapters[Math.floor(Math.random() * chapters.length)]
+    const randomChapter = CHAPTERS[randomIndex]
+
+    return randomAspectFromChapter(randomChapter)
+
 }
 
 function getAspect(aspects, chapter: number, index: number): Aspect {
@@ -58,7 +67,8 @@ function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode): string 
 // --- STATE ---
 
 function setAspect():void {
-    selectedAspect = RandomAspectFromChapter(CHAPTERS[0])
+    // selectedAspect = randomAspectFromChapter(CHAPTERS[0])
+    selectedAspect = randomAspectFromChapters(selectedChapters)
 }
 
 
@@ -91,7 +101,7 @@ function renderNewAspect():void {
 getChapters() 
     .then((chapters: [Chapter]) => {
         CHAPTERS = chapters
-        selectedAspect = RandomAspectFromChapter(chapters[0])
+        selectedAspect = randomAspectFromChapters(selectedChapters)
         console.log(selectedAspect)        
         renderNewAspect()
     })
