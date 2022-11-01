@@ -37,6 +37,14 @@ function RandomAspectFromChapter(chapter: Chapter): Aspect {
     return chapter.aspects[Math.floor(Math.random() * chapter.aspects.length)]
 }
 
+function randomAspectFromChapters(chapters: Array<number>): Aspect {
+    const randomIndex = chapters[Math.floor(Math.random() * chapters.length)]
+    const randomChapter = CHAPTERS[randomIndex]
+
+    return RandomAspectFromChapter(randomChapter)
+
+}
+
 function getAspect(aspects, chapter: number, index: number): Aspect {
     return aspects.chapters[chapter].aspects[index]
 }
