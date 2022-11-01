@@ -1,13 +1,22 @@
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
-let ASPECTS: [ Chapter] | null = null
+let ASPECTS = null
 let selectedAspect: Aspect | null = null
+let CHAPTERS: Array<Chapter> | null = null
 
-getAspects()
-    .then((aspects)=> {
-        ASPECTS = aspects
-        selectedAspect = randomAspectFromChapter(1)
+getChapters() 
+    .then((chapters: [Chapter]) => {
+        CHAPTERS = chapters
+        selectedAspect = RandomAspectFromChapter0(chapters[0])
+        console.log(selectedAspect)        
         renderAspect()
     })
+
+// getAspects()
+//     .then((aspects)=> {
+//         ASPECTS = aspects
+//         selectedAspect = randomAspectFromChapter(1)
+//         renderAspect()
+//     })
 
 let showingCorrectness = false
 
@@ -102,12 +111,19 @@ async function getAspects() {
     return BODY;
 }
 
+async function getChapters(): Promise<[Chapter]> {
+    const res = await fetch(ASPECT_URL);
+    const body = await res.json();
+
+    return body.chapters;
+}
+
 function getAspect(aspects, chapter: number, index: number): Aspect {
     return aspects.chapters[chapter].aspects[index]
 }
 
 function setAspect():void {
-    selectedAspect = randomAspectFromChapter(1)
+    selectedAspect = RandomAspectFromChapter0(CHAPTERS[0])
 }
 
 
