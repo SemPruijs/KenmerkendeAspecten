@@ -33,7 +33,7 @@ async function getChapters(): Promise<[Chapter]> {
     return body.chapters;
 }
 
-function RandomAspectFromChapter(chapter: Chapter): Aspect {
+function randomAspectFromChapter(chapter: Chapter): Aspect {
     return chapter.aspects[Math.floor(Math.random() * chapter.aspects.length)]
 }
 
@@ -41,7 +41,7 @@ function randomAspectFromChapters(chapters: Array<number>): Aspect {
     const randomIndex = chapters[Math.floor(Math.random() * chapters.length)]
     const randomChapter = CHAPTERS[randomIndex]
 
-    return RandomAspectFromChapter(randomChapter)
+    return randomAspectFromChapter(randomChapter)
 
 }
 
@@ -66,7 +66,7 @@ function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode): string 
 // --- STATE ---
 
 function setAspect():void {
-    selectedAspect = RandomAspectFromChapter(CHAPTERS[0])
+    selectedAspect = randomAspectFromChapter(CHAPTERS[0])
 }
 
 
@@ -99,7 +99,7 @@ function renderNewAspect():void {
 getChapters() 
     .then((chapters: [Chapter]) => {
         CHAPTERS = chapters
-        selectedAspect = RandomAspectFromChapter(chapters[0])
+        selectedAspect = randomAspectFromChapter(chapters[0])
         console.log(selectedAspect)        
         renderNewAspect()
     })
