@@ -52,49 +52,42 @@ het ontstaan van feodale verhoudingen in het bestuur.
 
 ## Hoofdstuk 4
 
-**[De tijd van steden en staten**
+**De tijd van steden en staten**
 
 4a
-de opkomst van handel en ambacht die de basis legde voor het herleven
-van een agrarisch-urbane samenleving.
+de opkomst van handel en ambacht die de basis legde voor het herleven van een agrarisch-urbane samenleving.
 
 4b
-de opkomst van de stedelijke burgerij en de toenemende
-zelfstandigheid van steden.
+de opkomst van de stedelijke burgerij en de toenemende zelfstandigheid van steden.
 
 4c
-het conflict in de christelijke wereld over de vraag of de
-wereldlijke dan wel de geestelijke macht het primaat behoorde te hebben.
+het conflict in de christelijke wereld over de vraag of de wereldlijke dan wel de geestelijke macht het primaat behoorde te hebben.
 
 4d
-de expansie van de christelijke wereld naar buiten toe, onder andere
-in de vorm van de kruistochten. 
+de expansie van de christelijke wereld naar buiten toe, onder andere in de vorm van de kruistochten. 
 
 4e
 het begin van staatsvorming en centralisatie. 
 
 ## Hoofdstuk 5
 
-**[De tijd van ontdekkers en hervormers**
+**De tijd van ontdekkers en hervormers**
 
 5a
 het begin van de Europese overzeese expansie. 
 
 5b
-het veranderende mens- en wereldbeeld van de renaissance en het begin
-van een nieuwe wetenschappelijke belangstelling. 
+het veranderende mens- en wereldbeeld van de renaissance en het begin van een nieuwe wetenschappelijke belangstelling. 
 
 5c
 de hernieuwde oriëntatie op het erfgoed van de klassieke oudheid.
 
 
 5d
-de protestantse Reformatie die splitsing van de christelijke kerk in
-West-Europa tot gevolg had. 
+de protestantse Reformatie die splitsing van de christelijke kerk in West-Europa tot gevolg had. 
 
 5e
-het conflict in de Nederlanden dat resulteerde in de stichting van
-een Nederlandse staat. 
+het conflict in de Nederlanden dat resulteerde in de stichting van een Nederlandse staat. 
 
 ## Hoofdstuk 6
 

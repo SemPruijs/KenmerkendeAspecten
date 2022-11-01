@@ -87,6 +87,31 @@
                     "value": "het begin van staatsvorming en centralisatie. "
                 }
             ]
+        },
+        {
+            "title": "5 De tijd van ontdekkers en hervormers",
+            "aspects": [
+                {
+                    "id": "5a",
+                    "value": "het begin van de Europese overzeese expansie. "
+                },
+                {
+                    "id": "5b",
+                    "value": "het veranderende mens- en wereldbeeld van de renaissance en het begin van een nieuwe wetenschappelijke belangstelling. "
+                },
+                {
+                    "id": "5c",
+                    "value": "de hernieuwde oriëntatie op het erfgoed van de klassieke oudheid."
+                },
+                {
+                    "id": "5d",
+                    "value": "de protestantse Reformatie die splitsing van de christelijke kerk in West-Europa tot gevolg had. "
+                },
+                {
+                    "id": "5e",
+                    "value": "het conflict in de Nederlanden dat resulteerde in de stichting van een Nederlandse staat. "
+                }
+            ]
         }
     ]
 }
