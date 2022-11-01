@@ -1,5 +1,4 @@
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
-let ASPECTS = null
 let selectedAspect: Aspect | null = null
 let CHAPTERS: Array<Chapter> | null = null
 
@@ -11,12 +10,6 @@ getChapters()
         renderAspect()
     })
 
-// getAspects()
-//     .then((aspects)=> {
-//         ASPECTS = aspects
-//         selectedAspect = randomAspectFromChapter(1)
-//         renderAspect()
-//     })
 
 let showingCorrectness = false
 
@@ -74,41 +67,8 @@ function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode): string 
     }
 }
 
-// Should be a positive number
-// TODO: Change type to Int
-function getRandomNumberBelowNumber(number: number): number {
-    return Math.floor(Math.random() * number)
-}
-
-function randomIndexFromList(list: any): number {
-    return getRandomNumberBelowNumber(list.length)
-}
-
-
-// TODO: Call this function on a chapter
-function randomIndexFromChapter(aspects, chapter: number): number {
-    return randomIndexFromList(aspects.chapters[chapter].aspects)
-}
-
-// const aspects = ASPECTS
-// TODO: Make this function pure
-function randomAspectFromChapter(chapter: number): Aspect {
-    const RANDOM_INDEX = randomIndexFromChapter(ASPECTS, chapter)    
-    const aspect = getAspect(ASPECTS, chapter, RANDOM_INDEX)
-    console.log(aspect)
-    return aspect
-}
-
 function RandomAspectFromChapter0(chapter: Chapter): Aspect {
     return chapter.aspects[Math.floor(Math.random() * chapter.aspects.length)]
-}
-
-
-async function getAspects() {
-    const RES = await fetch(ASPECT_URL);
-    const BODY = await RES.json();
-
-    return BODY;
 }
 
 async function getChapters(): Promise<[Chapter]> {
