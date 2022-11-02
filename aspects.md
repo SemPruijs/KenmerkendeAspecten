@@ -97,8 +97,7 @@ het conflict in de Nederlanden dat resulteerde in de stichting van een Nederland
 het streven van vorsten naar absolute macht.
 
 6b
-de bijzondere plaats in staatkundig opzicht en de bloei in economisch
-en cultureel opzicht van de Nederlandse Republiek. 
+de bijzondere plaats in staatkundig opzicht en de bloei in economisch en cultureel opzicht van de Nederlandse Republiek. 
 
 6c
 wereldwijde handelscontacten, handelskapitalisme en het begin van een wereldeconomie. 

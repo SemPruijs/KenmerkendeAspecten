@@ -112,6 +112,27 @@
                     "value": "het conflict in de Nederlanden dat resulteerde in de stichting van een Nederlandse staat. "
                 }
             ]
+        },
+        {
+            "title": "6 De tijd van regenten en vorsten",
+            "aspects": [
+                {
+                    "id": "6a",
+                    "value": "het streven van vorsten naar absolute macht."
+                },
+                {
+                    "id": "6b",
+                    "value": "de bijzondere plaats in staatkundig opzicht en de bloei in economisch en cultureel opzicht van de Nederlandse Republiek. "
+                },
+                {
+                    "id": "6c",
+                    "value": "wereldwijde handelscontacten, handelskapitalisme en het begin van een wereldeconomie. "
+                },
+                {
+                    "id": "6d",
+                    "value": "de wetenschappelijke revolutie."
+                }
+            ]
         }
     ]
 }
