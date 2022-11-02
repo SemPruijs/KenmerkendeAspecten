@@ -161,16 +161,13 @@ de crisis van het wereldkapitalisme.
 het voeren van twee oorlogen. 
 
 9e
-racisme en discriminatie die leidden tot genocide, in het bijzonder
-op de joden. 
+racisme en discriminatie die leidden tot genocide, in het bijzonder op de joden. 
 
 9f
 de Duitse bezetting van Nederland. 
 
 9g
-verwoesting op niet eerder vertoonde schaal door
-massavernietigingswapens en de betrokkenheid van de burgerbevolking bij
-oorlogvoering. 
+verwoesting op niet eerder vertoonde schaal door massavernietigingswapens en de betrokkenheid van de burgerbevolking bij oorlogvoering. 
 
 9h
 vormen van verzet tegen het West-Europese imperialisme. 

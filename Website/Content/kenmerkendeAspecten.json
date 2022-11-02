@@ -183,6 +183,43 @@
                     "value": "de opkomst van politiek-maatschappelijke stromingen: liberalisme, nationalisme, socialisme, confessionalisme en feminisme. "
                 }
             ]
+        },
+        {
+            "title": "9 De tijd van de wereldoorlogen.",
+            "aspects": [
+                {
+                    "id": "9a",
+                    "value": "De rol van moderne propaganda- en communicatiemiddelen en vormen van massaorganisatie. "
+                },
+                {
+                    "id": "9b",
+                    "value": "het in praktijk brengen van de totalitaire ideologieën. "
+                },
+                {
+                    "id": "9c",
+                    "value": "de crisis van het wereldkapitalisme."
+                },
+                {
+                    "id": "9d",
+                    "value": "het voeren van twee oorlogen. "
+                },
+                {
+                    "id": "9e",
+                    "value": "racisme en discriminatie die leidden tot genocide, in het bijzonder op de joden. "
+                },
+                {
+                    "id": "9f",
+                    "value": "de Duitse bezetting van Nederland. "
+                },
+                {
+                    "id": "9g",
+                    "value": "verwoesting op niet eerder vertoonde schaal door massavernietigingswapens en de betrokkenheid van de burgerbevolking bij oorlogvoering. "
+                },
+                {
+                    "id": "9h",
+                    "value": "vormen van verzet tegen het West-Europese imperialisme. "
+                }
+            ]
         }
     ]
 }
