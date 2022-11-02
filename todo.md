@@ -3,7 +3,7 @@
 ## priority
 - [x] Add types to all functions in index.ts
 - [x] Change var to const and state to let
-- [ ] Apply naming correct convensions to local constants
+- [x] Apply naming correct convensions to local constants
 - [x] Turn off Any type
 
 ## Important
@@ -20,4 +20,5 @@
 
 ## Publish
 - [ ] turn on github pages
+- [ ] Make build pipeline
 - [ ] Add domain 

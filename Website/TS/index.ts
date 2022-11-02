@@ -1,5 +1,5 @@
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
-const selectedChapters: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8,, 9]
+const SELECTED_CHAPTERS: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8,, 9]
 let selectedAspect: Aspect | null = null
 let CHAPTERS: Array<Chapter> | null = null
 let showingCorrectness = false
@@ -46,9 +46,6 @@ function randomAspectFromChapters(chapters: Array<number>): Aspect {
 
 }
 
-// function getAspect(aspects, chapter: number, index: number): Aspect {
-//     return aspects.chapters[chapter].aspects[index]
-// }
 
 function isCorrect(aspect:Aspect, input:string, mode: Mode): boolean {        
     const correctAnswer = mode == Mode.Value ? aspect.value : aspect.id
@@ -67,8 +64,7 @@ function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode:Mode): st
 // --- STATE ---
 
 function setAspect():void {
-    // selectedAspect = randomAspectFromChapter(CHAPTERS[0])
-    selectedAspect = randomAspectFromChapters(selectedChapters)
+    selectedAspect = randomAspectFromChapters(SELECTED_CHAPTERS)
 }
 
 
@@ -101,7 +97,7 @@ function renderNewAspect():void {
 getChapters() 
     .then((chapters: [Chapter]) => {
         CHAPTERS = chapters
-        selectedAspect = randomAspectFromChapters(selectedChapters)
+        selectedAspect = randomAspectFromChapters(SELECTED_CHAPTERS)
         console.log(selectedAspect)        
         renderNewAspect()
     })
