@@ -62,6 +62,189 @@
                     "value": "het ontstaan van feodale verhoudingen in het bestuur."
                 }
             ]
+        },
+        {
+            "title": "4 De tijd van steden en staten",
+            "aspects": [
+                {
+                    "id": "4a",
+                    "value": "de opkomst van handel en ambacht die de basis legde voor het herleven van een agrarisch-urbane samenleving."
+                },
+                {
+                    "id": "4b",
+                    "value": "de opkomst van de stedelijke burgerij en de toenemende zelfstandigheid van steden."
+                },
+                {
+                    "id": "4c",
+                    "value": "het conflict in de christelijke wereld over de vraag of de wereldlijke dan wel de geestelijke macht het primaat behoorde te hebben."
+                },
+                {
+                    "id": "4d",
+                    "value": "de expansie van de christelijke wereld naar buiten toe, onder andere in de vorm van de kruistochten. "
+                },
+                {
+                    "id": "4e",
+                    "value": "het begin van staatsvorming en centralisatie. "
+                }
+            ]
+        },
+        {
+            "title": "5 De tijd van ontdekkers en hervormers",
+            "aspects": [
+                {
+                    "id": "5a",
+                    "value": "het begin van de Europese overzeese expansie. "
+                },
+                {
+                    "id": "5b",
+                    "value": "het veranderende mens- en wereldbeeld van de renaissance en het begin van een nieuwe wetenschappelijke belangstelling. "
+                },
+                {
+                    "id": "5c",
+                    "value": "de hernieuwde oriëntatie op het erfgoed van de klassieke oudheid."
+                },
+                {
+                    "id": "5d",
+                    "value": "de protestantse Reformatie die splitsing van de christelijke kerk in West-Europa tot gevolg had. "
+                },
+                {
+                    "id": "5e",
+                    "value": "het conflict in de Nederlanden dat resulteerde in de stichting van een Nederlandse staat. "
+                }
+            ]
+        },
+        {
+            "title": "6 De tijd van regenten en vorsten",
+            "aspects": [
+                {
+                    "id": "6a",
+                    "value": "het streven van vorsten naar absolute macht."
+                },
+                {
+                    "id": "6b",
+                    "value": "de bijzondere plaats in staatkundig opzicht en de bloei in economisch en cultureel opzicht van de Nederlandse Republiek. "
+                },
+                {
+                    "id": "6c",
+                    "value": "wereldwijde handelscontacten, handelskapitalisme en het begin van een wereldeconomie. "
+                },
+                {
+                    "id": "6d",
+                    "value": "de wetenschappelijke revolutie."
+                }
+            ]
+        },
+        {
+            "title": "7 De tijd van pruiken en revoluties.",
+            "aspects": [
+                {
+                    "id": "7a",
+                    "value": "rationeel optimisme en verlicht denken dat werd toegepast op alle terreinen van de samenleving: godsdienst, politiek, economie en sociale verhoudingen."
+                },
+                {
+                    "id": "7b",
+                    "value": "voortbestaan van het ancien régime met pogingen om het vorstelijk bestuur op eigentijdse verlichte wijze vorm te geven (verlicht absolutisme). "
+                },
+                {
+                    "id": "7c",
+                    "value": "uitbouw van de Europese overheersing, met name in de vorm van plantagekolonies en de daarmee verbonden trans-Atlantische slavenhandel, en de opkomst van het abolitionisme. "
+                },
+                {
+                    "id": "7d",
+                    "value": "de democratische revoluties in westerse landen met als gevolg discussies over grondwetten, grondrechten en staatsburgerschap."
+                }
+            ]
+        },
+        {
+            "title": "8 De tijd van burgers en stoommachines.",
+            "aspects": [
+                {
+                    "id": "8a",
+                    "value": "de industriële revolutie die in de westerse wereld de basis legde voor een industriële samenleving. "
+                },
+                {
+                    "id": "8b",
+                    "value": "discussies over de sociale kwestie. "
+                },
+                {
+                    "id": "8c",
+                    "value": "de moderne vorm van imperialisme die verband hield met de industrialisatie. "
+                },
+                {
+                    "id": "8d",
+                    "value": "de opkomst van emancipatiebewegingen."
+                },
+                {
+                    "id": "8e",
+                    "value": "voortschrijdende democratisering, met deelname van steeds meer mannen en vrouwen aan het politieke proces. "
+                },
+                {
+                    "id": "8f",
+                    "value": "de opkomst van politiek-maatschappelijke stromingen: liberalisme, nationalisme, socialisme, confessionalisme en feminisme. "
+                }
+            ]
+        },
+        {
+            "title": "9 De tijd van de wereldoorlogen.",
+            "aspects": [
+                {
+                    "id": "9a",
+                    "value": "De rol van moderne propaganda- en communicatiemiddelen en vormen van massaorganisatie. "
+                },
+                {
+                    "id": "9b",
+                    "value": "het in praktijk brengen van de totalitaire ideologieën. "
+                },
+                {
+                    "id": "9c",
+                    "value": "de crisis van het wereldkapitalisme."
+                },
+                {
+                    "id": "9d",
+                    "value": "het voeren van twee oorlogen. "
+                },
+                {
+                    "id": "9e",
+                    "value": "racisme en discriminatie die leidden tot genocide, in het bijzonder op de joden. "
+                },
+                {
+                    "id": "9f",
+                    "value": "de Duitse bezetting van Nederland. "
+                },
+                {
+                    "id": "9g",
+                    "value": "verwoesting op niet eerder vertoonde schaal door massavernietigingswapens en de betrokkenheid van de burgerbevolking bij oorlogvoering. "
+                },
+                {
+                    "id": "9h",
+                    "value": "vormen van verzet tegen het West-Europese imperialisme. "
+                }
+            ]
+        },
+        {
+            "title": "10 De tijd van de televisie en de computer.",
+            "aspects": [
+                {
+                    "id": "10a",
+                    "value": "de verdeling van de wereld in twee ideologische blokken in de greep van een wapenwedloop en de daaruit voortvloeiende dreiging van een atoomoorlog."
+                },
+                {
+                    "id": "10b",
+                    "value": "De dekolonisatie die een eind maakte aan de westerse hegemonie in de wereld. "
+                },
+                {
+                    "id": "10c",
+                    "value": "de eenwording van Europa. "
+                },
+                {
+                    "id": "10d",
+                    "value": "de toenemende westerse welvaart die vanaf de jaren 1960 aanleiding gaf tot ingrijpende sociaal-culturele veranderingsprocessen. "
+                },
+                {
+                    "id": "10e",
+                    "value": "de ontwikkeling van pluriforme en multiculturele samenlevingen."
+                }            
+            ]
         }
     ]
 }
