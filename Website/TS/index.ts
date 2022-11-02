@@ -51,15 +51,15 @@ function randomAspectFromChapters(chapters: Array<number>): Aspect {
 // }
 
 function isCorrect(aspect:Aspect, input:string, mode: Mode): boolean {        
-    const correctAnswer = mode === Mode.Value ? aspect.value : aspect.id
-    return correctAnswer === input    
+    const correctAnswer = mode == Mode.Value ? aspect.value : aspect.id
+    return correctAnswer == input    
 }
 
 function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode:Mode): string {
     if (correct) {
         return "Correct! Enter voor  volgende."
     } else {
-        let correctAnswer = mode === Mode.Value ? aspect.value : aspect.id
+        let correctAnswer = mode == Mode.Value ? aspect.value : aspect.id
         return `Fout. Goede antwoord: ${correctAnswer}. Enter voor  volgende.`       
     }
 }
@@ -108,7 +108,7 @@ getChapters()
 
     // Runs when the user presses enter
 function answerTextfieldOnEnter(event: KeyboardEvent): void {
-    if (event.key === "Enter") {
+    if (event.key == "Enter") {
         const userInput = (document.getElementById("answerTextfield") as HTMLInputElement).value
         clearTextField()                
 

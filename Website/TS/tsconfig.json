@@ -3,6 +3,6 @@
         "target": "ES2021",
         "watch": true,
         "lib": ["es2021", "DOM"],
-        "noImplicitAny": true
+        "noImplicitAny": true,
     }
 }
