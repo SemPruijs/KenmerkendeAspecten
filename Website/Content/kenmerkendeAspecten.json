@@ -133,6 +133,27 @@
                     "value": "de wetenschappelijke revolutie."
                 }
             ]
+        },
+        {
+            "title": "7 De tijd van pruiken en revoluties.",
+            "aspects": [
+                {
+                    "id": "7a",
+                    "value": "rationeel optimisme en verlicht denken dat werd toegepast op alle terreinen van de samenleving: godsdienst, politiek, economie en sociale verhoudingen."
+                },
+                {
+                    "id": "7b",
+                    "value": "voortbestaan van het ancien régime met pogingen om het vorstelijk bestuur op eigentijdse verlichte wijze vorm te geven (verlicht absolutisme). "
+                },
+                {
+                    "id": "7c",
+                    "value": "uitbouw van de Europese overheersing, met name in de vorm van plantagekolonies en de daarmee verbonden trans-Atlantische slavenhandel, en de opkomst van het abolitionisme. "
+                },
+                {
+                    "id": "7d",
+                    "value": "de democratische revoluties in westerse landen met als gevolg discussies over grondwetten, grondrechten en staatsburgerschap."
+                }
+            ]
         }
     ]
 }
