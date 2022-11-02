@@ -186,8 +186,7 @@ De dekolonisatie die een eind maakte aan de westerse hegemonie in de wereld.
 de eenwording van Europa. 
 
 10d
-de toenemende westerse welvaart die vanaf de jaren 1960 aanleiding
-gaf tot ingrijpende sociaal-culturele veranderingsprocessen. 
+de toenemende westerse welvaart die vanaf de jaren 1960 aanleiding gaf tot ingrijpende sociaal-culturele veranderingsprocessen. 
 
 10e
 de ontwikkeling van pluriforme en multiculturele samenlevingen.
