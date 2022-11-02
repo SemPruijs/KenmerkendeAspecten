@@ -1,10 +1,10 @@
 # Todo
 
 ## priority
-- [ ] Add types to all functions in index.ts
+- [x] Add types to all functions in index.ts
 - [x] Change var to const and state to let
 - [ ] Apply naming correct convensions to local constants
-- [ ] Turn off js in typescript compiler settings
+- [x] Turn off Any type
 
 ## Important
 - [x] Add all chapters in json file
