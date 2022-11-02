@@ -154,6 +154,35 @@
                     "value": "de democratische revoluties in westerse landen met als gevolg discussies over grondwetten, grondrechten en staatsburgerschap."
                 }
             ]
+        },
+        {
+            "title": "8 De tijd van burgers en stoommachines.",
+            "aspects": [
+                {
+                    "id": "8a",
+                    "value": "de industriële revolutie die in de westerse wereld de basis legde voor een industriële samenleving. "
+                },
+                {
+                    "id": "8b",
+                    "value": "discussies over de sociale kwestie. "
+                },
+                {
+                    "id": "8c",
+                    "value": "de moderne vorm van imperialisme die verband hield met de industrialisatie. "
+                },
+                {
+                    "id": "8d",
+                    "value": "de opkomst van emancipatiebewegingen."
+                },
+                {
+                    "id": "8e",
+                    "value": "voortschrijdende democratisering, met deelname van steeds meer mannen en vrouwen aan het politieke proces. "
+                },
+                {
+                    "id": "8f",
+                    "value": "de opkomst van politiek-maatschappelijke stromingen: liberalisme, nationalisme, socialisme, confessionalisme en feminisme. "
+                }
+            ]
         }
     ]
 }

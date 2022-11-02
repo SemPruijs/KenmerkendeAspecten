@@ -91,7 +91,7 @@ het conflict in de Nederlanden dat resulteerde in de stichting van een Nederland
 
 ## Hoofdstuk 6
 
-**[De tijd van regenten en vorsten**
+**De tijd van regenten en vorsten**
 
 6a
 het streven van vorsten naar absolute macht.
@@ -110,22 +110,16 @@ de wetenschappelijke revolutie.
 **De tijd van pruiken en revoluties.**
 
 7a
-rationeel optimisme en verlicht denken dat werd toegepast op alle
-terreinen van de samenleving: godsdienst, politiek, economie en sociale verhoudingen.
+rationeel optimisme en verlicht denken dat werd toegepast op alle terreinen van de samenleving: godsdienst, politiek, economie en sociale verhoudingen.
 
 7b
-voortbestaan van het ancien régime met pogingen om het vorstelijk
-bestuur op eigentijdse verlichte wijze vorm te geven (verlicht
-absolutisme). 
+voortbestaan van het ancien régime met pogingen om het vorstelijk bestuur op eigentijdse verlichte wijze vorm te geven (verlicht absolutisme). 
 
 7c
-uitbouw van de Europese overheersing, met name in de vorm van
-plantagekolonies en de daarmee verbonden trans-Atlantische slavenhandel,
-en de opkomst van het abolitionisme. 
+uitbouw van de Europese overheersing, met name in de vorm van plantagekolonies en de daarmee verbonden trans-Atlantische slavenhandel, en de opkomst van het abolitionisme. 
 
 7d
-de democratische revoluties in westerse landen met als gevolg
-discussies over grondwetten, grondrechten en staatsburgerschap.
+de democratische revoluties in westerse landen met als gevolg discussies over grondwetten, grondrechten en staatsburgerschap.
 
 
 ## Hoofdstuk 8
@@ -133,26 +127,22 @@ discussies over grondwetten, grondrechten en staatsburgerschap.
 **De tijd van burgers en stoommachines.**
 
 8a
-de industriële revolutie die in de westerse wereld de basis legde
-voor een industriële samenleving. 
+de industriële revolutie die in de westerse wereld de basis legde voor een industriële samenleving. 
 
 8b
 discussies over de sociale kwestie. 
 
 8c
-de moderne vorm van imperialisme die verband hield met de
-industrialisatie. 
+de moderne vorm van imperialisme die verband hield met de industrialisatie. 
 
 8d
 de opkomst van emancipatiebewegingen.
 
 8e
-voortschrijdende democratisering, met deelname van steeds meer mannen
-en vrouwen aan het politieke proces. 
+voortschrijdende democratisering, met deelname van steeds meer mannen en vrouwen aan het politieke proces. 
 
 8f
-de opkomst van politiek-maatschappelijke stromingen: liberalisme,
-nationalisme, socialisme, confessionalisme en feminisme. 
+de opkomst van politiek-maatschappelijke stromingen: liberalisme, nationalisme, socialisme, confessionalisme en feminisme. 
 
 ## Hoofdstuk 9
 
