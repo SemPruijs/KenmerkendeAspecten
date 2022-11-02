@@ -177,9 +177,7 @@ vormen van verzet tegen het West-Europese imperialisme.
 **De tijd van de televisie en de computer.**
 
 10a
-de verdeling van de wereld in twee ideologische blokken in de greep
-van een wapenwedloop en de daaruit voortvloeiende dreiging van een
-atoomoorlog.
+de verdeling van de wereld in twee ideologische blokken in de greep van een wapenwedloop en de daaruit voortvloeiende dreiging van een atoomoorlog.
 
 10b
 De dekolonisatie die een eind maakte aan de westerse hegemonie in de wereld. 

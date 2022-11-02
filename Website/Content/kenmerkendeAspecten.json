@@ -220,6 +220,31 @@
                     "value": "vormen van verzet tegen het West-Europese imperialisme. "
                 }
             ]
+        },
+        {
+            "title": "10 De tijd van de televisie en de computer.",
+            "aspects": [
+                {
+                    "id": "10a",
+                    "value": "de verdeling van de wereld in twee ideologische blokken in de greep van een wapenwedloop en de daaruit voortvloeiende dreiging van een atoomoorlog."
+                },
+                {
+                    "id": "10b",
+                    "value": "De dekolonisatie die een eind maakte aan de westerse hegemonie in de wereld. "
+                },
+                {
+                    "id": "10c",
+                    "value": "de eenwording van Europa. "
+                },
+                {
+                    "id": "10d",
+                    "value": "de toenemende westerse welvaart die vanaf de jaren 1960 aanleiding gaf tot ingrijpende sociaal-culturele veranderingsprocessen. "
+                },
+                {
+                    "id": "10e",
+                    "value": "de ontwikkeling van pluriforme en multiculturele samenlevingen."
+                }            
+            ]
         }
     ]
 }
