@@ -7,7 +7,7 @@
 - [ ] Turn off js in typescript compiler settings
 
 ## Important
-- [ ] Add all chapters in json file
+- [x] Add all chapters in json file
 - [ ] Make chapter select
 
 ## nice to have
