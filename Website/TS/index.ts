@@ -46,20 +46,20 @@ function randomAspectFromChapters(chapters: Array<number>): Aspect {
 
 }
 
-function getAspect(aspects, chapter: number, index: number): Aspect {
-    return aspects.chapters[chapter].aspects[index]
-}
+// function getAspect(aspects, chapter: number, index: number): Aspect {
+//     return aspects.chapters[chapter].aspects[index]
+// }
 
 function isCorrect(aspect:Aspect, input:string, mode: Mode): boolean {        
     const correctAnswer = mode === Mode.Value ? aspect.value : aspect.id
     return correctAnswer === input    
 }
 
-function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode): string {
+function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode:Mode): string {
     if (correct) {
         return "Correct! Enter voor  volgende."
     } else {
-        let correctAnswer = mode === "value" ? aspect.value : aspect.id
+        let correctAnswer = mode === Mode.Value ? aspect.value : aspect.id
         return `Fout. Goede antwoord: ${correctAnswer}. Enter voor  volgende.`       
     }
 }
@@ -83,10 +83,10 @@ function hideCorrectness():void {
     document.getElementById("correctness").innerHTML = ""
 }
 
-function showCorrectness(userInput, mode:Mode):void {
+function showCorrectness(userInput: string, mode:Mode):void {
     const aspect = selectedAspect
     const correctness = isCorrect(aspect, userInput, mode)
-    const message = messageAboutCorrectness(correctness, aspect, "id")
+    const message = messageAboutCorrectness(correctness, aspect, Mode.Id)
 
     document.getElementById("correctness").innerHTML = message
 }
@@ -107,7 +107,7 @@ getChapters()
     })
 
     // Runs when the user presses enter
-function answerTextfieldOnEnter(event): void {
+function answerTextfieldOnEnter(event: KeyboardEvent): void {
     if (event.key === "Enter") {
         const userInput = (document.getElementById("answerTextfield") as HTMLInputElement).value
         clearTextField()                
