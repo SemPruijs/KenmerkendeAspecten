@@ -38,6 +38,23 @@ function randomAspectFromChapter(chapter: Chapter): Aspect {
     return chapter.aspects[Math.floor(Math.random() * chapter.aspects.length)]
 }
 
+function indexToChapter(index: number, chapters: Array<Chapter>): Chapter {
+    return chapters[index]
+}
+
+function indexsToChapters(indexs: Array<number>, chapters: Array<Chapter>): Array<Chapter> {
+    const indexToChapterr = (index: number) => indexToChapter(index, chapters);
+    return indexs.map(indexToChapterr)
+}
+
+// function listAspectsFromChapters(chapters: Array<Chapter>): Array<Aspect> {
+//     return chapters.flatMap()
+// }
+
+// function generateNewRandomAspectOrder(chapters: Array<number>): Array<Aspect> {
+
+// }
+
 function randomAspectFromChapters(chapters: Array<number>): Aspect {
     const randomIndex = chapters[Math.floor(Math.random() * chapters.length)]
     const randomChapter = CHAPTERS[randomIndex]
