@@ -42,14 +42,14 @@ function indexToChapter(index: number, chapters: Array<Chapter>): Chapter {
     return chapters[index]
 }
 
-function indexsToChapters(indexs: Array<number>, chapters: Array<Chapter>): Array<Chapter> {
+function indexesToChapters(indexs: Array<number>, chapters: Array<Chapter>): Array<Chapter> {
     const indexToChapterr = (index: number) => indexToChapter(index, chapters);
     return indexs.map(indexToChapterr)
 }
 
-// function listAspectsFromChapters(chapters: Array<Chapter>): Array<Aspect> {
-//     return chapters.flatMap()
-// }
+function listAspectsFromChapters(chapters: Array<Chapter>): Array<Aspect> {
+    return chapters.flatMap(chapter => chapter.aspects)
+}
 
 // function generateNewRandomAspectOrder(chapters: Array<number>): Array<Aspect> {
 
@@ -115,13 +115,16 @@ getChapters()
     .then((chapters: [Chapter]) => {
         CHAPTERS = chapters
         selectedAspect = randomAspectFromChapters(SELECTED_CHAPTERS)
-        console.log(selectedAspect)        
+        // console.log(selectedAspect)        
+        // console.log(indexToChapter(0, CHAPTERS))
+        // console.log(indexesToChapters([0, 1], CHAPTERS))
+        console.log(listAspectsFromChapters(indexesToChapters([0,1], chapters)))
         renderNewAspect()
     })
 
     // Runs when the user presses enter
 function answerTextfieldOnEnter(event: KeyboardEvent): void {
-    if (event.key == "Enter") {
+    if (event.key == "Enter") {        
         const userInput = (document.getElementById("answerTextfield") as HTMLInputElement).value
         clearTextField()                
 
@@ -136,3 +139,5 @@ function answerTextfieldOnEnter(event: KeyboardEvent): void {
         }        
     }
 }
+
+// console.log(indexesToChapters([0,1], CHAPTERS))
