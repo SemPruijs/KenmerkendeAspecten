@@ -18,6 +18,25 @@ interface Chapter {
     aspects: [Aspect]
 }
 
+function shuffle<T>(array: T[]): T[] {
+    let currentIndex = array.length,  randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+  
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
+};
+
+
 // mode should represent the type of value that the user is typing.   
 enum Mode {
     Id,
@@ -51,9 +70,9 @@ function listAspectsFromChapters(chapters: Array<Chapter>): Array<Aspect> {
     return chapters.flatMap(chapter => chapter.aspects)
 }
 
-// function generateNewRandomAspectOrder(chapters: Array<number>): Array<Aspect> {
-
-// }
+function generateNewOrder(aspects: Array<Aspect>): Array<Aspect> {
+    return shuffle(aspects)
+}
 
 function randomAspectFromChapters(chapters: Array<number>): Aspect {
     const randomIndex = chapters[Math.floor(Math.random() * chapters.length)]
@@ -118,7 +137,8 @@ getChapters()
         // console.log(selectedAspect)        
         // console.log(indexToChapter(0, CHAPTERS))
         // console.log(indexesToChapters([0, 1], CHAPTERS))
-        console.log(listAspectsFromChapters(indexesToChapters([0,1], chapters)))
+        // console.log(listAspectsFromChapters(indexesToChapters([0,1], chapters)))
+        console.log(generateNewOrder(listAspectsFromChapters(indexesToChapters([0,1], chapters))))
         renderNewAspect()
     })
 
