@@ -110,6 +110,16 @@ function renderNewAspect(aspect:Aspect):void {
     document.getElementById("question").innerHTML = aspect.value
 }    
 
+// --- State ---
+function setAspect():void {
+    if (currentIndex < order.length - 1) {
+        currentIndex += 1
+    } else {
+        order = generateNewOrder(order)
+        currentIndex = 0
+    } 
+}
+
 // --- Runtime ---
 
 getChapters() 
@@ -129,13 +139,7 @@ function answerTextfieldOnEnter(event: KeyboardEvent): void {
         if (!showingCorrectness) {            
             showingCorrectness = true
             showCorrectness(userInput, Mode.Id, order[currentIndex])
-
-            if (currentIndex < order.length - 1) {
-                currentIndex += 1
-            } else {
-                order = generateNewOrder(order)
-                currentIndex = 0
-            }
+            setAspect()
         } else {
             showingCorrectness = false
             hideCorrectness()
