@@ -1,6 +1,5 @@
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
 const SELECTED_CHAPTERS: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8,, 9]
-// let selectedAspect: Aspect | null = null
 let CHAPTERS: Array<Chapter> | null = null
 let showingCorrectness = false
 let order: Array<Aspect> | null = null
@@ -89,14 +88,6 @@ function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode:Mode): st
     }
 }
 
-// --- STATE ---
-
-// function setAspect():void {
-//     // selectedAspect = randomAspectFromChapters(SELECTED_CHAPTERS)
-//     selectedAspect = order[currentIndex]
-// }
-
-
 // --- DOM ---
 
 function clearTextField(): void {
@@ -109,7 +100,6 @@ function hideCorrectness():void {
 }
 
 function showCorrectness(userInput: string, mode:Mode, aspect: Aspect):void {
-    // const aspect = selectedAspect
     const correctness = isCorrect(aspect, userInput, mode)
     const message = messageAboutCorrectness(correctness, aspect, Mode.Id)
 
@@ -117,8 +107,6 @@ function showCorrectness(userInput: string, mode:Mode, aspect: Aspect):void {
 }
 
 function renderNewAspect(aspect:Aspect):void {
-    // const aspect = selectedAspect
-
     document.getElementById("question").innerHTML = aspect.value
 }    
 
@@ -148,7 +136,6 @@ function answerTextfieldOnEnter(event: KeyboardEvent): void {
                 order = generateNewOrder(order)
                 currentIndex = 0
             }
-            // setAspect()
         } else {
             showingCorrectness = false
             hideCorrectness()
