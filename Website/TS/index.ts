@@ -1,6 +1,6 @@
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
 const SELECTED_CHAPTERS: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8,, 9]
-let selectedAspect: Aspect | null = null
+// let selectedAspect: Aspect | null = null
 let CHAPTERS: Array<Chapter> | null = null
 let showingCorrectness = false
 let order: Array<Aspect> | null = null
@@ -91,10 +91,10 @@ function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode:Mode): st
 
 // --- STATE ---
 
-function setAspect():void {
-    // selectedAspect = randomAspectFromChapters(SELECTED_CHAPTERS)
-    selectedAspect = order[currentIndex]
-}
+// function setAspect():void {
+//     // selectedAspect = randomAspectFromChapters(SELECTED_CHAPTERS)
+//     selectedAspect = order[currentIndex]
+// }
 
 
 // --- DOM ---
@@ -108,16 +108,17 @@ function hideCorrectness():void {
     document.getElementById("correctness").innerHTML = ""
 }
 
-function showCorrectness(userInput: string, mode:Mode):void {
-    const aspect = selectedAspect
+function showCorrectness(userInput: string, mode:Mode, aspect: Aspect):void {
+    // const aspect = selectedAspect
     const correctness = isCorrect(aspect, userInput, mode)
     const message = messageAboutCorrectness(correctness, aspect, Mode.Id)
 
     document.getElementById("correctness").innerHTML = message
 }
 
-function renderNewAspect():void {
-    const aspect = selectedAspect
+function renderNewAspect(aspect:Aspect):void {
+    // const aspect = selectedAspect
+
     document.getElementById("question").innerHTML = aspect.value
 }    
 
@@ -127,8 +128,8 @@ getChapters()
     .then((chapters: [Chapter]) => {
         CHAPTERS = chapters
         order = listAspectsFromChapters(indexesToChapters([0], chapters))
-        selectedAspect = order[currentIndex]
-        renderNewAspect()
+        // selectedAspect = order[currentIndex]
+        renderNewAspect(order[currentIndex])
     })
 
     // Runs when the user presses enter
@@ -139,7 +140,7 @@ function answerTextfieldOnEnter(event: KeyboardEvent): void {
 
         if (!showingCorrectness) {            
             showingCorrectness = true
-            showCorrectness(userInput, Mode.Id)
+            showCorrectness(userInput, Mode.Id, order[currentIndex])
 
             if (currentIndex < order.length - 1) {
                 currentIndex += 1
@@ -147,11 +148,11 @@ function answerTextfieldOnEnter(event: KeyboardEvent): void {
                 order = generateNewOrder(order)
                 currentIndex = 0
             }
-            setAspect()
+            // setAspect()
         } else {
             showingCorrectness = false
             hideCorrectness()
-            renderNewAspect()
+            renderNewAspect(order[currentIndex])
         }        
     }
 }
