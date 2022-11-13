@@ -111,9 +111,10 @@ function renderNewAspect(aspect:Aspect):void {
 }    
 
 // --- State ---
+
 function setAspect():void {
     if (currentIndex < order.length - 1) {
-        currentIndex += 1
+        currentIndex++
     } else {
         order = generateNewOrder(order)
         currentIndex = 0
