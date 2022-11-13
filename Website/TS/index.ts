@@ -4,6 +4,7 @@ let selectedAspect: Aspect | null = null
 let CHAPTERS: Array<Chapter> | null = null
 let showingCorrectness = false
 let order: Array<Aspect> | null = null
+let currentIndex = 0
 
 
 // TODO: Put the types in a seperate typescript file
@@ -103,7 +104,8 @@ function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode:Mode): st
 // --- STATE ---
 
 function setAspect():void {
-    selectedAspect = randomAspectFromChapters(SELECTED_CHAPTERS)
+    // selectedAspect = randomAspectFromChapters(SELECTED_CHAPTERS)
+    selectedAspect = order[currentIndex]
 }
 
 
@@ -136,27 +138,27 @@ function renderNewAspect():void {
 getChapters() 
     .then((chapters: [Chapter]) => {
         CHAPTERS = chapters
-        selectedAspect = randomAspectFromChapters(SELECTED_CHAPTERS)
-        // console.log(selectedAspect)        
-        // console.log(indexToChapter(0, CHAPTERS))
-        // console.log(indexesToChapters([0, 1], CHAPTERS))
-        // console.log(listAspectsFromChapters(indexesToChapters([0,1], chapters)))
-        // console.log(generateNewOrder(listAspectsFromChapters(indexesToChapters([0,1], chapters))))
         order = listAspectsFromChapters(indexesToChapters([0], chapters))
+        selectedAspect = order[currentIndex]
         renderNewAspect()
     })
 
     // Runs when the user presses enter
 function answerTextfieldOnEnter(event: KeyboardEvent): void {
     if (event.key == "Enter") {        
-        order = generateNewOrder(order)
-        console.log(order)
         const userInput = (document.getElementById("answerTextfield") as HTMLInputElement).value
         clearTextField()                
 
         if (!showingCorrectness) {            
             showingCorrectness = true
             showCorrectness(userInput, Mode.Id)
+
+            if (currentIndex < order.length - 1) {
+                currentIndex += 1
+            } else {
+                order = generateNewOrder(order)
+                currentIndex = 0
+            }
             setAspect()
         } else {
             showingCorrectness = false
@@ -166,4 +168,3 @@ function answerTextfieldOnEnter(event: KeyboardEvent): void {
     }
 }
 
-// console.log(indexesToChapters([0,1], CHAPTERS))
