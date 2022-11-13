@@ -55,9 +55,6 @@ async function getChapters(): Promise<[Chapter]> {
     return body.chapters;
 }
 
-function randomAspectFromChapter(chapter: Chapter): Aspect {
-    return chapter.aspects[Math.floor(Math.random() * chapter.aspects.length)]
-}
 
 function indexToChapter(index: number, chapters: Array<Chapter>): Chapter {
     return chapters[index]
@@ -77,15 +74,6 @@ function generateNewOrder(oldOrder: Array<Aspect>): Array<Aspect> {
     const newOrder: Array<Aspect> = shuffle(oldOrder.filter((aspect) => aspect.id != lastAspect.id)).concat([lastAspect])
     return newOrder
 }
-
-function randomAspectFromChapters(chapters: Array<number>): Aspect {
-    const randomIndex = chapters[Math.floor(Math.random() * chapters.length)]
-    const randomChapter = CHAPTERS[randomIndex]
-
-    return randomAspectFromChapter(randomChapter)
-
-}
-
 
 function isCorrect(aspect:Aspect, input:string, mode: Mode): boolean {        
     const correctAnswer = mode == Mode.Value ? aspect.value : aspect.id
