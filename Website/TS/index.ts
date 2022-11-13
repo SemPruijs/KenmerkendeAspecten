@@ -3,6 +3,7 @@ const SELECTED_CHAPTERS: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8,, 9]
 let selectedAspect: Aspect | null = null
 let CHAPTERS: Array<Chapter> | null = null
 let showingCorrectness = false
+let order: Array<Aspect> | null = null
 
 
 // TODO: Put the types in a seperate typescript file
@@ -70,8 +71,10 @@ function listAspectsFromChapters(chapters: Array<Chapter>): Array<Aspect> {
     return chapters.flatMap(chapter => chapter.aspects)
 }
 
-function generateNewOrder(aspects: Array<Aspect>): Array<Aspect> {
-    return shuffle(aspects)
+function generateNewOrder(oldOrder: Array<Aspect>): Array<Aspect> {
+    const lastAspect = oldOrder[oldOrder.length - 1]
+    const newOrder: Array<Aspect> = shuffle(oldOrder.filter((aspect) => aspect.id != lastAspect.id)).concat([lastAspect])
+    return newOrder
 }
 
 function randomAspectFromChapters(chapters: Array<number>): Aspect {
@@ -138,13 +141,16 @@ getChapters()
         // console.log(indexToChapter(0, CHAPTERS))
         // console.log(indexesToChapters([0, 1], CHAPTERS))
         // console.log(listAspectsFromChapters(indexesToChapters([0,1], chapters)))
-        console.log(generateNewOrder(listAspectsFromChapters(indexesToChapters([0,1], chapters))))
+        // console.log(generateNewOrder(listAspectsFromChapters(indexesToChapters([0,1], chapters))))
+        order = listAspectsFromChapters(indexesToChapters([0], chapters))
         renderNewAspect()
     })
 
     // Runs when the user presses enter
 function answerTextfieldOnEnter(event: KeyboardEvent): void {
     if (event.key == "Enter") {        
+        order = generateNewOrder(order)
+        console.log(order)
         const userInput = (document.getElementById("answerTextfield") as HTMLInputElement).value
         clearTextField()                
 
