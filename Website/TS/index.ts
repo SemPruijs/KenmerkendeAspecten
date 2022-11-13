@@ -1,6 +1,5 @@
 const ASPECT_URL = "Content/KenmerkendeAspecten.json"
 const SELECTED_CHAPTERS: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8,, 9]
-let selectedAspect: Aspect | null = null
 let CHAPTERS: Array<Chapter> | null = null
 let showingCorrectness = false
 let order: Array<Aspect> | null = null
@@ -55,9 +54,6 @@ async function getChapters(): Promise<[Chapter]> {
     return body.chapters;
 }
 
-function randomAspectFromChapter(chapter: Chapter): Aspect {
-    return chapter.aspects[Math.floor(Math.random() * chapter.aspects.length)]
-}
 
 function indexToChapter(index: number, chapters: Array<Chapter>): Chapter {
     return chapters[index]
@@ -78,15 +74,6 @@ function generateNewOrder(oldOrder: Array<Aspect>): Array<Aspect> {
     return newOrder
 }
 
-function randomAspectFromChapters(chapters: Array<number>): Aspect {
-    const randomIndex = chapters[Math.floor(Math.random() * chapters.length)]
-    const randomChapter = CHAPTERS[randomIndex]
-
-    return randomAspectFromChapter(randomChapter)
-
-}
-
-
 function isCorrect(aspect:Aspect, input:string, mode: Mode): boolean {        
     const correctAnswer = mode == Mode.Value ? aspect.value : aspect.id
     return correctAnswer == input    
@@ -101,14 +88,6 @@ function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode:Mode): st
     }
 }
 
-// --- STATE ---
-
-function setAspect():void {
-    // selectedAspect = randomAspectFromChapters(SELECTED_CHAPTERS)
-    selectedAspect = order[currentIndex]
-}
-
-
 // --- DOM ---
 
 function clearTextField(): void {
@@ -120,18 +99,27 @@ function hideCorrectness():void {
     document.getElementById("correctness").innerHTML = ""
 }
 
-function showCorrectness(userInput: string, mode:Mode):void {
-    const aspect = selectedAspect
+function showCorrectness(userInput: string, mode:Mode, aspect: Aspect):void {
     const correctness = isCorrect(aspect, userInput, mode)
     const message = messageAboutCorrectness(correctness, aspect, Mode.Id)
 
     document.getElementById("correctness").innerHTML = message
 }
 
-function renderNewAspect():void {
-    const aspect = selectedAspect
+function renderNewAspect(aspect:Aspect):void {
     document.getElementById("question").innerHTML = aspect.value
 }    
+
+// --- State ---
+
+function setAspect():void {
+    if (currentIndex < order.length - 1) {
+        currentIndex++
+    } else {
+        order = generateNewOrder(order)
+        currentIndex = 0
+    } 
+}
 
 // --- Runtime ---
 
@@ -139,8 +127,8 @@ getChapters()
     .then((chapters: [Chapter]) => {
         CHAPTERS = chapters
         order = listAspectsFromChapters(indexesToChapters([0], chapters))
-        selectedAspect = order[currentIndex]
-        renderNewAspect()
+        // selectedAspect = order[currentIndex]
+        renderNewAspect(order[currentIndex])
     })
 
     // Runs when the user presses enter
@@ -151,19 +139,12 @@ function answerTextfieldOnEnter(event: KeyboardEvent): void {
 
         if (!showingCorrectness) {            
             showingCorrectness = true
-            showCorrectness(userInput, Mode.Id)
-
-            if (currentIndex < order.length - 1) {
-                currentIndex += 1
-            } else {
-                order = generateNewOrder(order)
-                currentIndex = 0
-            }
+            showCorrectness(userInput, Mode.Id, order[currentIndex])
             setAspect()
         } else {
             showingCorrectness = false
             hideCorrectness()
-            renderNewAspect()
+            renderNewAspect(order[currentIndex])
         }        
     }
 }
