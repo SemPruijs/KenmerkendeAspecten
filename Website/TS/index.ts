@@ -124,9 +124,9 @@ function setAspect():void {
 // --- Runtime ---
 
 getChapters() 
-    .then((chapters: [Chapter]) => {
+    .then((chapters: [Chapter]) =>{
         CHAPTERS = chapters
-        order = listAspectsFromChapters(indexesToChapters([0], chapters))
+        order = shuffle(listAspectsFromChapters(indexesToChapters([9], chapters)))
         // selectedAspect = order[currentIndex]
         renderNewAspect(order[currentIndex])
     })
