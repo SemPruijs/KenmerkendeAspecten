@@ -23,9 +23,12 @@
 
             installPhase = ''
               mkdir $out
+              mkdir $out/ts
+              mkdir $out/content
               cp ./index.html $out
-              cp ./content/kenmerkendeAspecten.json $out
-              cp ./ts/index.js $out
+              cp ./main.css $out
+              cp ./content/kenmerkendeAspecten.json $out/content
+              cp ./ts/index.js $out/ts
             '';
           };
         };      
