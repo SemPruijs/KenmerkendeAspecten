@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: cachix/install-nix-action@v12
-      - run: nix build --extra-experimental-features
+      - run: nix build 
