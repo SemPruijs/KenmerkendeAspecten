@@ -1,0 +1,9 @@
+name: built website
+run-name: Building website
+on: [push]
+jobs:
+  build-website:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cachix/install-nix-action@v12
+      - run: nix build
