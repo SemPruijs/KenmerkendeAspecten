@@ -11,5 +11,5 @@ jobs:
       - run: nix build 
       - uses: actions/configure-pages@v2
       - uses: actions/upload-pages-artifact
-        with: 
+      - with: 
           path: "./result"
