@@ -5,5 +5,5 @@ jobs:
   build-website:
     runs-on: ubuntu-latest
     steps:
-      - uses: cachix/install-nix-action@v12
+      - uses: cachix/install-nix-action@v18
       - run: nix build 
