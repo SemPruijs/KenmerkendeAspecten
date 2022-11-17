@@ -10,6 +10,6 @@ jobs:
       - uses: cachix/install-nix-action@v18
       - run: nix build 
         uses: actions/configure-pages@v2
-        uses: actions/upload-pages-artifact
-        with: 
-          path: "./result"
+        # uses: actions/upload-pages-artifact
+        # with: 
+          # path: "./result"
