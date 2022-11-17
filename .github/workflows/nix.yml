@@ -9,6 +9,6 @@ jobs:
       - run: cd ${{ github.workspace }}
       - uses: cachix/install-nix-action@v18
       - run: nix build 
-        uses: actions/upload-pages-artifact
+      - uses: actions/upload-pages-artifact
         with: 
           path: "./result"
