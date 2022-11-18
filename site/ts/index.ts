@@ -1,4 +1,4 @@
-const ASPECT_URL = "Content/KenmerkendeAspecten.json"
+const ASPECT_URL = "content/kenmerkendeAspecten.json"
 const SELECTED_CHAPTERS: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8,, 9]
 let CHAPTERS: Array<Chapter> | null = null
 let showingCorrectness = false
