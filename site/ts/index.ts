@@ -9,7 +9,6 @@ let currentIndex = 0
 // TODO: Put the types in a seperate typescript file
 // --- TYPES ---
 
-interface Aspect {
     id: string,
     value: string
 }
