@@ -10,8 +10,9 @@
       imports = [];
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       perSystem = { config, self', inputs', pkgs, system, ... }: {
-        packages = {
-          default = pkgs.stdenv.mkDerivation {
+        packages = rec {
+          default = site;
+          site = pkgs.stdenv.mkDerivation {
             buildInputs = with pkgs; [ nodePackages.typescript ];
             src = ./site;
             name = "kenmerkende-aspecten";
