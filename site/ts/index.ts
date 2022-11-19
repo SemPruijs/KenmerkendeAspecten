@@ -122,9 +122,11 @@ function renderUIMode(mode: UIMode): void {
     const learningClass = mode == UIMode.ChapterSelect ? "hidden" : ""
     const chapterSelectClass = mode == UIMode.ChapterSelect ? "" : "hidden"
 
-    document.getElementById("chapter-select").className = chapterSelectClass
-    document.getElementById("chapter-select").className = learningClass    
+    document.getElementById("chapter-select-container").className = chapterSelectClass
+    document.getElementById("learning-container").className = learningClass    
 }
+
+
 // --- State ---
 
 function setAspect():void {
@@ -146,11 +148,11 @@ getChapters()
     .then((chapters: [Chapter]) =>{
         CHAPTERS = chapters
         order = shuffle(listAspectsFromChapters(indexesToChapters(SELECTED_CHAPTERS, chapters)))
-        // selectedAspect = order[currentIndex]
+        renderUIMode(uimode)
         renderNewAspect(order[currentIndex])
     })
 
-    // Runs when the user presses enter
+// Runs when the user presses enter
 function answerTextfieldOnEnter(event: KeyboardEvent): void {
     if (event.key == "Enter") {        
         const userInput = (document.getElementById("answerTextfield") as HTMLInputElement).value
