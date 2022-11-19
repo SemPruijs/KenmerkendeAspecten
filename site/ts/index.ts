@@ -44,6 +44,11 @@ enum LearnMode {
     Value
 }
 
+enum UIMode {
+    Learning,
+    ChapterSelect
+}
+
 
 // --- GET INFORMATION ---
 
