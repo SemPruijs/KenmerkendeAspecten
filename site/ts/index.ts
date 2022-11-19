@@ -118,6 +118,13 @@ function renderNewAspect(aspect:Aspect):void {
     document.getElementById("question").innerHTML = aspect.value
 }    
 
+function renderUIMode(mode: UIMode): void {
+    const learningClass = mode == UIMode.ChapterSelect ? "hidden" : ""
+    const chapterSelectClass = mode == UIMode.ChapterSelect ? "" : "hidden"
+
+    document.getElementById("chapter-select").className = chapterSelectClass
+    document.getElementById("chapter-select").className = learningClass    
+}
 // --- State ---
 
 function setAspect():void {
@@ -127,6 +134,10 @@ function setAspect():void {
         order = generateNewOrder(order)
         currentIndex = 0
     } 
+}
+
+function setUIMode(mode: UIMode) {
+    uimode = mode
 }
 
 // --- Runtime ---
