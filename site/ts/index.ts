@@ -39,10 +39,11 @@ function shuffle<T>(array: T[]): T[] {
 
 
 // mode should represent the type of value that the user is typing.   
-enum Mode {
+enum LearnMode {
     Id,
     Value
 }
+
 
 // --- GET INFORMATION ---
 
@@ -74,16 +75,16 @@ function generateNewOrder(oldOrder: Array<Aspect>): Array<Aspect> {
     return newOrder
 }
 
-function isCorrect(aspect:Aspect, input:string, mode: Mode): boolean {        
-    const correctAnswer = mode == Mode.Value ? aspect.value : aspect.id
+function isCorrect(aspect:Aspect, input:string, mode: LearnMode): boolean {        
+    const correctAnswer = mode == LearnMode.Value ? aspect.value : aspect.id
     return correctAnswer == input    
 }
 
-function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode:Mode): string {
+function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode:LearnMode): string {
     if (correct) {
         return "Correct! Enter voor  volgende."
     } else {
-        let correctAnswer = mode == Mode.Value ? aspect.value : aspect.id
+        let correctAnswer = mode == LearnMode.Value ? aspect.value : aspect.id
         return `Fout. Goede antwoord: ${correctAnswer}. Enter voor  volgende.`       
     }
 }
@@ -99,9 +100,9 @@ function hideCorrectness():void {
     document.getElementById("correctness").innerHTML = ""
 }
 
-function showCorrectness(userInput: string, mode:Mode, aspect: Aspect):void {
+function showCorrectness(userInput: string, mode:LearnMode, aspect: Aspect):void {
     const correctness = isCorrect(aspect, userInput, mode)
-    const message = messageAboutCorrectness(correctness, aspect, Mode.Id)
+    const message = messageAboutCorrectness(correctness, aspect, LearnMode.Id)
 
     document.getElementById("correctness").innerHTML = message
 }
@@ -139,7 +140,7 @@ function answerTextfieldOnEnter(event: KeyboardEvent): void {
 
         if (!showingCorrectness) {            
             showingCorrectness = true
-            showCorrectness(userInput, Mode.Id, order[currentIndex])
+            showCorrectness(userInput, LearnMode.Id, order[currentIndex])
             setAspect()
         } else {
             showingCorrectness = false
