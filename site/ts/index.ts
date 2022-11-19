@@ -1,11 +1,3 @@
-const ASPECT_URL = "content/kenmerkendeAspecten.json"
-const SELECTED_CHAPTERS: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8,, 9]
-let CHAPTERS: Array<Chapter> | null = null
-let showingCorrectness = false
-let order: Array<Aspect> | null = null
-let currentIndex = 0
-
-
 // TODO: Put the types in a seperate typescript file
 // --- TYPES ---
 
@@ -17,6 +9,17 @@ interface Aspect {
 interface Chapter {
     title: string,
     aspects: [Aspect]
+}
+
+// mode should represent the type of value that the user is typing.   
+enum LearnMode {
+    Id,
+    Value
+}
+
+enum UIMode {
+    Learning,
+    ChapterSelect
 }
 
 function shuffle<T>(array: T[]): T[] {
@@ -38,16 +41,15 @@ function shuffle<T>(array: T[]): T[] {
 };
 
 
-// mode should represent the type of value that the user is typing.   
-enum LearnMode {
-    Id,
-    Value
-}
+// --- Constants and varibels ---
 
-enum UIMode {
-    Learning,
-    ChapterSelect
-}
+const ASPECT_URL = "content/kenmerkendeAspecten.json"
+const SELECTED_CHAPTERS: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8,, 9]
+let CHAPTERS: Array<Chapter> | null = null
+let showingCorrectness = false
+let order: Array<Aspect> | null = null
+let currentIndex = 0
+let uimode: UIMode = UIMode.ChapterSelect
 
 
 // --- GET INFORMATION ---
