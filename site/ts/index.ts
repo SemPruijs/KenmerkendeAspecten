@@ -44,7 +44,7 @@ function shuffle<T>(array: T[]): T[] {
 // --- Constants and varibels ---
 
 const ASPECT_URL = "content/kenmerkendeAspecten.json"
-const SELECTED_CHAPTERS: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8,, 9]
+let SELECTED_CHAPTERS: Array<number> = [0]
 let CHAPTERS: Array<Chapter> | null = null
 let showingCorrectness = false
 let order: Array<Aspect> | null = null
@@ -126,6 +126,16 @@ function renderUIMode(mode: UIMode): void {
     document.getElementById("learning-container").className = learningClass    
 }
 
+function setChapter(checkbox: HTMLInputElement)
+{
+    if (checkbox.checked)
+    {
+        console.log(checkbox.id)
+        SELECTED_CHAPTERS.push(Number(checkbox.id))
+        order = shuffle(listAspectsFromChapters(indexesToChapters(SELECTED_CHAPTERS, CHAPTERS)))
+    }
+}
+
 function renderChapterselect(chapters: Array<Chapter>) {
     const container = document.getElementById("checkbox-container")
     const ul = document.createElement("ul")
@@ -136,6 +146,7 @@ function renderChapterselect(chapters: Array<Chapter>) {
         const checkbox = document.createElement("input")
         checkbox.id = i.toString()
         checkbox.type = "checkbox"
+        checkbox.setAttribute("onclick", "setChapter(this)")
 
         // create label for checkbox
         const label = document.createElement("label")
@@ -167,14 +178,18 @@ function setUIMode(mode: UIMode) {
     uimode = mode
 }
 
+function startLearning() {
+    renderNewAspect(order[currentIndex])
+    setUIMode(UIMode.Learning)
+    renderUIMode(uimode)
+}
+
 // --- Runtime ---
 
 getChapters() 
     .then((chapters: [Chapter]) =>{
         CHAPTERS = chapters
-        order = shuffle(listAspectsFromChapters(indexesToChapters(SELECTED_CHAPTERS, chapters)))
-        renderUIMode(uimode)
-        renderNewAspect(order[currentIndex])
+        renderUIMode(uimode)        
         renderChapterselect(CHAPTERS)
     })
 
