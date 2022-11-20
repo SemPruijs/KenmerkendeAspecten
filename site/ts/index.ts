@@ -127,9 +127,11 @@ function renderUIMode(mode: UIMode): void {
 }
 
 function renderChapterselect(chapters: Array<Chapter>) {
-    const container = document.getElementById("chapter-select-container")
+    const container = document.getElementById("checkbox-container")
+    const ul = document.createElement("ul")
 
     for (let i = 0; i < chapters.length; i++) {
+        const li = document.createElement("li")
         // create checkbox
         const checkbox = document.createElement("input")
         checkbox.id = i.toString()
@@ -140,10 +142,14 @@ function renderChapterselect(chapters: Array<Chapter>) {
         label.setAttribute("for", i.toString())
         label.innerHTML = chapters[i].title
 
-        // render checkbox with label
-        container.appendChild(checkbox)
-        container.appendChild(label)    
+
+        li.appendChild(checkbox)
+        li.appendChild(label)
+
+        ul.appendChild(li)
     }    
+
+    container.appendChild(ul)
 }
 
 // --- State ---
