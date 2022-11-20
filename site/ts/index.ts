@@ -202,6 +202,11 @@ function startLearning() {
     }    
 }
 
+function backToChapterSelect(): void {
+    setUIMode(UIMode.ChapterSelect)
+    renderUIMode(uimode)
+}
+
 // --- Runtime ---
 
 getChapters() 
