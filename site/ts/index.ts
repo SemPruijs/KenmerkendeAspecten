@@ -131,6 +131,25 @@ function renderUIMode(mode: UIMode): void {
     document.getElementById("learning-container").className = learningClass    
 }
 
+function renderChapterselect(chapters: Array<Chapter>) {
+    const container = document.getElementById("chapter-select-container")
+
+    for (let i = 0; i < chapters.length; i++) {
+        // create checkbox
+        const checkbox = document.createElement("input")
+        checkbox.id = i.toString()
+        checkbox.type = "checkbox"
+
+        // create label for checkbox
+        const label = document.createElement("label")
+        label.setAttribute("for", i.toString())
+        label.innerHTML = chapters[i].title
+
+        // render checkbox with label
+        container.appendChild(checkbox)
+        container.appendChild(label)    
+    }    
+}
 
 // --- State ---
 
@@ -155,6 +174,7 @@ getChapters()
         order = shuffle(listAspectsFromChapters(indexesToChapters(SELECTED_CHAPTERS, chapters)))
         renderUIMode(uimode)
         renderNewAspect(order[currentIndex])
+        renderChapterselect(CHAPTERS)
     })
 
 // Runs when the user presses enter
