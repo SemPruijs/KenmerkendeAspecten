@@ -12,15 +12,22 @@
 </head>
 
 <body>
-<!-- Heading showing the question -->
-<h1 id="question" role="alert"></h1>
+    <div id="chapter-select-container">
+        <div id="checkbox-container"></div>
+        <button type="button" onclick="startLearning()">Begin met leren</button>
+        <p id="error" role="alert"></p>
 
-<!-- Correctness label -->
-<p id="correctness" role="alert"></p>
+    </div>
+    <div id="learning-container" class="hidden">
+        <!-- Heading showing the question -->
+        <h1 id="question" role="alert"></h1>
 
-    <!-- Text field for user answer -->
-    <input type=”text” placeholder="Jouw antwoord" id="answerTextfield" onkeypress="answerTextfieldOnEnter(event)">
+        <!-- Correctness label -->
+        <p id="correctness" role="alert"></p>
 
+        <!-- Text field for user answer -->
+        <input type=”text” placeholder="Jouw antwoord" id="answerTextfield" onkeypress="answerTextfieldOnEnter(event)">
+    </div>
 </body>
 
 </html>

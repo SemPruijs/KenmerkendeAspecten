@@ -1,11 +1,3 @@
-const ASPECT_URL = "content/kenmerkendeAspecten.json"
-const SELECTED_CHAPTERS: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8,, 9]
-let CHAPTERS: Array<Chapter> | null = null
-let showingCorrectness = false
-let order: Array<Aspect> | null = null
-let currentIndex = 0
-
-
 // TODO: Put the types in a seperate typescript file
 // --- TYPES ---
 
@@ -17,6 +9,17 @@ interface Aspect {
 interface Chapter {
     title: string,
     aspects: [Aspect]
+}
+
+// mode should represent the type of value that the user is typing.   
+enum LearnMode {
+    Id,
+    Value
+}
+
+enum UIMode {
+    Learning,
+    ChapterSelect
 }
 
 function shuffle<T>(array: T[]): T[] {
@@ -38,11 +41,16 @@ function shuffle<T>(array: T[]): T[] {
 };
 
 
-// mode should represent the type of value that the user is typing.   
-enum Mode {
-    Id,
-    Value
-}
+// --- Constants and varibels ---
+
+const ASPECT_URL = "content/kenmerkendeAspecten.json"
+let SELECTED_CHAPTERS: Array<number> = []
+let CHAPTERS: Array<Chapter> | null = null
+let showingCorrectness = false
+let order: Array<Aspect> | null = null
+let currentIndex = 0
+let uimode: UIMode = UIMode.ChapterSelect
+
 
 // --- GET INFORMATION ---
 
@@ -74,16 +82,16 @@ function generateNewOrder(oldOrder: Array<Aspect>): Array<Aspect> {
     return newOrder
 }
 
-function isCorrect(aspect:Aspect, input:string, mode: Mode): boolean {        
-    const correctAnswer = mode == Mode.Value ? aspect.value : aspect.id
+function isCorrect(aspect:Aspect, input:string, mode: LearnMode): boolean {        
+    const correctAnswer = mode == LearnMode.Value ? aspect.value : aspect.id
     return correctAnswer == input    
 }
 
-function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode:Mode): string {
+function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode:LearnMode): string {
     if (correct) {
         return "Correct! Enter voor  volgende."
     } else {
-        let correctAnswer = mode == Mode.Value ? aspect.value : aspect.id
+        let correctAnswer = mode == LearnMode.Value ? aspect.value : aspect.id
         return `Fout. Goede antwoord: ${correctAnswer}. Enter voor  volgende.`       
     }
 }
@@ -99,9 +107,9 @@ function hideCorrectness():void {
     document.getElementById("correctness").innerHTML = ""
 }
 
-function showCorrectness(userInput: string, mode:Mode, aspect: Aspect):void {
+function showCorrectness(userInput: string, mode:LearnMode, aspect: Aspect):void {
     const correctness = isCorrect(aspect, userInput, mode)
-    const message = messageAboutCorrectness(correctness, aspect, Mode.Id)
+    const message = messageAboutCorrectness(correctness, aspect, LearnMode.Id)
 
     document.getElementById("correctness").innerHTML = message
 }
@@ -109,6 +117,47 @@ function showCorrectness(userInput: string, mode:Mode, aspect: Aspect):void {
 function renderNewAspect(aspect:Aspect):void {
     document.getElementById("question").innerHTML = aspect.value
 }    
+
+function renderUIMode(mode: UIMode): void {
+    const learningClass = mode == UIMode.ChapterSelect ? "hidden" : ""
+    const chapterSelectClass = mode == UIMode.ChapterSelect ? "" : "hidden"
+
+    document.getElementById("chapter-select-container").className = chapterSelectClass
+    document.getElementById("learning-container").className = learningClass    
+}
+
+function showingChapterSelectError(visable: boolean): void {    
+    document.getElementById("error").innerHTML = visable ? "Selecteer minstens 1 hoofdstuk" : ""
+    // document.getElementById("error").innerHTML = "Selecteer minstens 1 hoofdstuk"
+}
+
+
+function renderChapterselect(chapters: Array<Chapter>) {
+    const container = document.getElementById("checkbox-container")
+    const ul = document.createElement("ul")
+
+    for (let i = 0; i < chapters.length; i++) {
+        const li = document.createElement("li")
+        // create checkbox
+        const checkbox = document.createElement("input")
+        checkbox.id = i.toString()
+        checkbox.type = "checkbox"
+        checkbox.setAttribute("onclick", "setChapter(this)")
+
+        // create label for checkbox
+        const label = document.createElement("label")
+        label.setAttribute("for", i.toString())
+        label.innerHTML = chapters[i].title
+
+
+        li.appendChild(checkbox)
+        li.appendChild(label)
+
+        ul.appendChild(li)
+    }    
+
+    container.appendChild(ul)
+}
 
 // --- State ---
 
@@ -121,17 +170,48 @@ function setAspect():void {
     } 
 }
 
+function setUIMode(mode: UIMode) {
+    uimode = mode
+}
+
+function setChapter(checkbox: HTMLInputElement)
+{
+    const chapterIndex = Number(checkbox.id)
+    if (checkbox.checked)
+    {
+        SELECTED_CHAPTERS.push(chapterIndex)
+        order = shuffle(listAspectsFromChapters(indexesToChapters(SELECTED_CHAPTERS, CHAPTERS)))
+    } else {
+        const index = SELECTED_CHAPTERS.indexOf(chapterIndex, 0);
+        if (index > -1) {
+            SELECTED_CHAPTERS.splice(index, 1);
+        } else {
+            console.log("Something whent wrong")
+        }
+    }
+}
+
+function startLearning() {
+    const allowLearning = SELECTED_CHAPTERS.length > 0
+    showingChapterSelectError(!allowLearning)
+    console.log(allowLearning)
+    if (allowLearning) {
+        renderNewAspect(order[currentIndex])
+        setUIMode(UIMode.Learning)
+        renderUIMode(uimode)
+    }    
+}
+
 // --- Runtime ---
 
 getChapters() 
     .then((chapters: [Chapter]) =>{
         CHAPTERS = chapters
-        order = shuffle(listAspectsFromChapters(indexesToChapters(SELECTED_CHAPTERS, chapters)))
-        // selectedAspect = order[currentIndex]
-        renderNewAspect(order[currentIndex])
+        renderUIMode(uimode)        
+        renderChapterselect(CHAPTERS)
     })
 
-    // Runs when the user presses enter
+// Runs when the user presses enter
 function answerTextfieldOnEnter(event: KeyboardEvent): void {
     if (event.key == "Enter") {        
         const userInput = (document.getElementById("answerTextfield") as HTMLInputElement).value
@@ -139,7 +219,7 @@ function answerTextfieldOnEnter(event: KeyboardEvent): void {
 
         if (!showingCorrectness) {            
             showingCorrectness = true
-            showCorrectness(userInput, Mode.Id, order[currentIndex])
+            showCorrectness(userInput, LearnMode.Id, order[currentIndex])
             setAspect()
         } else {
             showingCorrectness = false
