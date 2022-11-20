@@ -126,22 +126,11 @@ function renderUIMode(mode: UIMode): void {
     document.getElementById("learning-container").className = learningClass    
 }
 
-function setChapter(checkbox: HTMLInputElement)
-{
-    const chapterIndex = Number(checkbox.id)
-    if (checkbox.checked)
-    {
-        SELECTED_CHAPTERS.push(chapterIndex)
-        order = shuffle(listAspectsFromChapters(indexesToChapters(SELECTED_CHAPTERS, CHAPTERS)))
-    } else {
-        const index = SELECTED_CHAPTERS.indexOf(chapterIndex, 0);
-        if (index > -1) {
-            SELECTED_CHAPTERS.splice(index, 1);
-        } else {
-            console.log("Something whent wrong")
-        }
-    }
+function showingChapterSelectError(visable: boolean): void {    
+    document.getElementById("error").innerHTML = visable ? "Selecteer minstens 1 hoofdstuk" : ""
+    // document.getElementById("error").innerHTML = "Selecteer minstens 1 hoofdstuk"
 }
+
 
 function renderChapterselect(chapters: Array<Chapter>) {
     const container = document.getElementById("checkbox-container")
@@ -185,10 +174,32 @@ function setUIMode(mode: UIMode) {
     uimode = mode
 }
 
+function setChapter(checkbox: HTMLInputElement)
+{
+    const chapterIndex = Number(checkbox.id)
+    if (checkbox.checked)
+    {
+        SELECTED_CHAPTERS.push(chapterIndex)
+        order = shuffle(listAspectsFromChapters(indexesToChapters(SELECTED_CHAPTERS, CHAPTERS)))
+    } else {
+        const index = SELECTED_CHAPTERS.indexOf(chapterIndex, 0);
+        if (index > -1) {
+            SELECTED_CHAPTERS.splice(index, 1);
+        } else {
+            console.log("Something whent wrong")
+        }
+    }
+}
+
 function startLearning() {
-    renderNewAspect(order[currentIndex])
-    setUIMode(UIMode.Learning)
-    renderUIMode(uimode)
+    const allowLearning = SELECTED_CHAPTERS.length > 0
+    showingChapterSelectError(!allowLearning)
+    console.log(allowLearning)
+    if (allowLearning) {
+        renderNewAspect(order[currentIndex])
+        setUIMode(UIMode.Learning)
+        renderUIMode(uimode)
+    }    
 }
 
 // --- Runtime ---
