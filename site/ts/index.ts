@@ -44,7 +44,7 @@ function shuffle<T>(array: T[]): T[] {
 // --- Constants and varibels ---
 
 const ASPECT_URL = "content/kenmerkendeAspecten.json"
-let SELECTED_CHAPTERS: Array<number> = [0]
+let SELECTED_CHAPTERS: Array<number> = []
 let CHAPTERS: Array<Chapter> | null = null
 let showingCorrectness = false
 let order: Array<Aspect> | null = null
@@ -128,11 +128,18 @@ function renderUIMode(mode: UIMode): void {
 
 function setChapter(checkbox: HTMLInputElement)
 {
+    const chapterIndex = Number(checkbox.id)
     if (checkbox.checked)
     {
-        console.log(checkbox.id)
-        SELECTED_CHAPTERS.push(Number(checkbox.id))
+        SELECTED_CHAPTERS.push(chapterIndex)
         order = shuffle(listAspectsFromChapters(indexesToChapters(SELECTED_CHAPTERS, CHAPTERS)))
+    } else {
+        const index = SELECTED_CHAPTERS.indexOf(chapterIndex, 0);
+        if (index > -1) {
+            SELECTED_CHAPTERS.splice(index, 1);
+        } else {
+            console.log("Something whent wrong")
+        }
     }
 }
 
