@@ -76,11 +76,6 @@ function listAspectsFromChapters(chapters: Array<Chapter>): Array<Aspect> {
     return chapters.flatMap(chapter => chapter.aspects)
 }
 
-function listTitlesFromChapters(chapters: Array<Chapter>): Array<string> {
-    const chapterToTitle = (chapter: Chapter) =>chapter.title
-    return chapters.map(chapterToTitle)
-}
-
 function generateNewOrder(oldOrder: Array<Aspect>): Array<Aspect> {
     const lastAspect = oldOrder[oldOrder.length - 1]
     const newOrder: Array<Aspect> = shuffle(oldOrder.filter((aspect) => aspect.id != lastAspect.id)).concat([lastAspect])
