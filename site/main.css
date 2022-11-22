@@ -18,6 +18,10 @@ ul {
     list-style-type: none;    
 }
 
+li {
+    padding: 5pt 0;
+}
+
 /* CSS below will force radio/checkbox size be same as font size */
 label{
 	position: relative;
