@@ -92,7 +92,7 @@ function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode:LearnMode
         return "Correct! Enter voor  volgende."
     } else {
         let correctAnswer = mode == LearnMode.Value ? aspect.value : aspect.id
-        return `Fout. Goede antwoord: ${correctAnswer}. Enter voor  volgende.`       
+        return `Fout. Goede antwoord: <b>${correctAnswer}</b>. Enter voor  volgende.`       
     }
 }
 
@@ -141,6 +141,7 @@ function renderChapterselect(chapters: Array<Chapter>) {
         // create checkbox
         const checkbox = document.createElement("input")
         checkbox.id = i.toString()
+        checkbox.className = "chapter-checkbox"
         checkbox.type = "checkbox"
         checkbox.setAttribute("onclick", "setChapter(this)")
 
