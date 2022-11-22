@@ -141,6 +141,7 @@ function renderChapterselect(chapters: Array<Chapter>) {
         // create checkbox
         const checkbox = document.createElement("input")
         checkbox.id = i.toString()
+        checkbox.className = "chapter-checkbox"
         checkbox.type = "checkbox"
         checkbox.setAttribute("onclick", "setChapter(this)")
 
