@@ -24,6 +24,10 @@ li {
     padding: 5pt 0;
 }
 
+#learning-container {
+    padding: 40pt;
+}
+
 /* CSS below will force radio/checkbox size be same as font size */
 label{
 	position: relative;
