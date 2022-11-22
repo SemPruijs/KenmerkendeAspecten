@@ -3,6 +3,8 @@ body {
     color: rgb(230, 230, 230);
     font-family: 'Roboto', sans-serif;
     font-size: 20pt;
+    letter-spacing: 5px;
+    word-spacing: 3px;
 }
 
 .hidden {
