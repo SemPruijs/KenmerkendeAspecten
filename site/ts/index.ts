@@ -92,7 +92,7 @@ function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode:LearnMode
         return "Correct! Enter voor  volgende."
     } else {
         let correctAnswer = mode == LearnMode.Value ? aspect.value : aspect.id
-        return `Fout. Goede antwoord: ${correctAnswer}. Enter voor  volgende.`       
+        return `Fout. Goede antwoord: <b>${correctAnswer}</b>. Enter voor  volgende.`       
     }
 }
 
