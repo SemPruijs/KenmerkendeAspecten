@@ -26,10 +26,12 @@
               mkdir $out
               mkdir $out/ts
               mkdir $out/content
-              mkdir $out/css
-              ls $out/css
+              # mkdir $out/css
+              # ls $out/css
               cp ./index.html $out
-              cp ./css/main.css $out/css
+              # cp ./css/main.css $out/css
+              # cp ./css/checkbox.css $out
+              cp -r ./css $out/css
               cp ./content/kenmerkendeAspecten.json $out/content
               cp ./ts/index.js $out/ts
             '';
