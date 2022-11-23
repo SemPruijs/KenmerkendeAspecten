@@ -26,8 +26,10 @@
               mkdir $out
               mkdir $out/ts
               mkdir $out/content
+              mkdir $out/css
+              ls $out/css
               cp ./index.html $out
-              cp ./main.css $out
+              cp ./css/main.css $out/css
               cp ./content/kenmerkendeAspecten.json $out/content
               cp ./ts/index.js $out/ts
             '';
