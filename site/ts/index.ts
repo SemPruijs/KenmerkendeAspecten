@@ -131,6 +131,10 @@ function showingChapterSelectError(visable: boolean): void {
     // document.getElementById("error").innerHTML = "Selecteer minstens 1 hoofdstuk"
 }
 
+function showAbleToLearnState(ableToLearn: boolean): void {
+    document.getElementById("start-learning").className = ableToLearn ? "highlighted-button" : ""
+}
+
 
 function renderChapterselect(chapters: Array<Chapter>) {
     const container = document.getElementById("checkbox-container")
@@ -190,6 +194,7 @@ function setChapter(checkbox: HTMLInputElement)
             console.log("Something whent wrong")
         }
     }
+    showAbleToLearnState(SELECTED_CHAPTERS.length > 0)
 }
 
 function startLearning() {
