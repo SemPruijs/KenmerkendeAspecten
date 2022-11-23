@@ -29,7 +29,19 @@ li {
 }
 
 button {
-    background-color: #520e7a; /* Green */
+    background-color: hwb(240 20% 75%);
+    border: none;
+    color: rgb(129, 129, 129);
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30pt;
+    border-radius: 15px;
+}
+
+.highlighted-button {
+    background-color: #3b88fd; 
     border: none;
     color: white;
     padding: 10px 30px;
@@ -38,5 +50,6 @@ button {
     display: inline-block;
     font-size: 30pt;
     border-radius: 15px;
+
 }
 
