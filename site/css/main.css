@@ -59,3 +59,7 @@ a {
     text-decoration: none;
 }
 
+#error {
+    color: rgb(255, 92, 92)
+}
+
