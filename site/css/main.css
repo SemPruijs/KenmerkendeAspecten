@@ -13,7 +13,7 @@ body {
 
 #chapter-select-container {
     font-size: 20pt;
-    background-color: rgb(49, 49, 49);
+    background-color: rgb(17, 3, 55);
 }
 
 ul {
@@ -26,5 +26,17 @@ li {
 
 #learning-container {
     padding: 40pt;
+}
+
+button {
+    background-color: #520e7a; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30pt;
+    border-radius: 15px;
 }
 
