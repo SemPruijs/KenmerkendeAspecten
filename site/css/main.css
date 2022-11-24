@@ -31,6 +31,7 @@ li {
     padding-top: 40pt;
     padding-right: 40pt;
     padding-bottom: 0pt;
+    margin-bottom: 200pt;
 }
 
 button {
@@ -67,7 +68,7 @@ a {
 }
 
 .answer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
