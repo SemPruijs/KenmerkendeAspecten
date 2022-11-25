@@ -76,10 +76,21 @@ function listAspectsFromChapters(chapters: Array<Chapter>): Array<Aspect> {
     return chapters.flatMap(chapter => chapter.aspects)
 }
 
+// function generateNewOrder(oldOrder: Array<Aspect>): Array<Aspect> {
+//     const lastAspect = oldOrder[oldOrder.length - 1]
+//     const newOrder: Array<Aspect> = shuffle(oldOrder.filter((aspect) => aspect.id != lastAspect.id)).concat([lastAspect])
+//     return newOrder
+// }
+
 function generateNewOrder(oldOrder: Array<Aspect>): Array<Aspect> {
-    const lastAspect = oldOrder[oldOrder.length - 1]
-    const newOrder: Array<Aspect> = shuffle(oldOrder.filter((aspect) => aspect.id != lastAspect.id)).concat([lastAspect])
-    return newOrder
+    const firstSplit = oldOrder.slice(0, Math.floor(oldOrder.length * 0.8))
+    const lastSplit = oldOrder.slice(Math.floor(oldOrder.length * 0.8), oldOrder.length)
+
+    console.log(oldOrder.length)
+    console.log(firstSplit.length)
+    console.log(lastSplit.length)
+
+    return oldOrder
 }
 
 function isCorrect(aspect:Aspect, input:string, mode: LearnMode): boolean {        
