@@ -82,15 +82,25 @@ function listAspectsFromChapters(chapters: Array<Chapter>): Array<Aspect> {
 //     return newOrder
 // }
 
+// The last 20% of the aspects will appear in the last 80% of the new older.
 function generateNewOrder(oldOrder: Array<Aspect>): Array<Aspect> {
     const firstSplit = oldOrder.slice(0, Math.floor(oldOrder.length * 0.8))
     const lastSplit = oldOrder.slice(Math.floor(oldOrder.length * 0.8), oldOrder.length)
 
-    console.log(oldOrder.length)
-    console.log(firstSplit.length)
-    console.log(lastSplit.length)
+    const shuffledFirstSplit = shuffle(firstSplit)
+    const noStartShuffleFirstSplit = shuffledFirstSplit.slice(lastSplit.length, shuffledFirstSplit.length)
 
-    return oldOrder
+    let NSSFSWithLastPart = noStartShuffleFirstSplit 
+
+    for (let i = 0; i < lastSplit.length; i++) {
+        const randomIndex = Math.floor(NSSFSWithLastPart.length * Math.random())
+        NSSFSWithLastPart.splice(randomIndex, 0, lastSplit[i])
+    }
+
+    const start = shuffledFirstSplit.slice(0, lastSplit.length)
+    const newOrder = start.concat(NSSFSWithLastPart)
+
+    return newOrder
 }
 
 function isCorrect(aspect:Aspect, input:string, mode: LearnMode): boolean {        
