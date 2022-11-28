@@ -1,8 +1,9 @@
 {
     "compilerOptions": {
         "target": "ES2021",
+        "outFile": "index.js",
         "watch": true,
         "lib": ["es2021", "DOM"],
         "noImplicitAny": true,
-    }
+    }    
 }

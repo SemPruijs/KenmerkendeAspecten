@@ -1,27 +1,3 @@
-// TODO: Put the types in a seperate typescript file
-// --- TYPES ---
-
-interface Aspect {
-    id: string,
-    value: string
-}
-
-interface Chapter {
-    title: string,
-    aspects: [Aspect]
-}
-
-// mode should represent the type of value that the user is typing.   
-enum LearnMode {
-    Id,
-    Value
-}
-
-enum UIMode {
-    Learning,
-    ChapterSelect
-}
-
 function shuffle<T>(array: T[]): T[] {
     let currentIndex = array.length,  randomIndex;
 
