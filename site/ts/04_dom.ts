@@ -1,5 +1,3 @@
-// --- DOM ---
-
 function clearTextField(): void {
     let textField = (document.getElementById("answerTextfield") as HTMLInputElement)
     textField.value = ""
@@ -30,7 +28,6 @@ function renderUIMode(mode: UIMode): void {
 
 function showingChapterSelectError(visable: boolean): void {    
     document.getElementById("error").innerHTML = visable ? "Selecteer minstens 1 hoofdstuk" : ""
-    // document.getElementById("error").innerHTML = "Selecteer minstens 1 hoofdstuk"
 }
 
 function showAbleToLearnState(ableToLearn: boolean): void {

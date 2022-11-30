@@ -1,5 +1,3 @@
-// --- GET INFORMATION ---
-
 // Load chapters
 async function getChapters(url: string): Promise<[Chapter]> {
     const res = await fetch(url);
@@ -22,11 +20,6 @@ function listAspectsFromChapters(chapters: Array<Chapter>): Array<Aspect> {
     return chapters.flatMap(chapter => chapter.aspects)
 }
 
-// function generateNewOrder(oldOrder: Array<Aspect>): Array<Aspect> {
-//     const lastAspect = oldOrder[oldOrder.length - 1]
-//     const newOrder: Array<Aspect> = shuffle(oldOrder.filter((aspect) => aspect.id != lastAspect.id)).concat([lastAspect])
-//     return newOrder
-// }
 
 // The last 20% of the aspects will appear in the last 80% of the new older.
 function generateNewOrder(oldOrder: Array<Aspect>): Array<Aspect> {
