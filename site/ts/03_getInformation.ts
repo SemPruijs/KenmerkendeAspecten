@@ -1,8 +1,8 @@
 // --- GET INFORMATION ---
 
 // Load chapters
-async function getChapters(): Promise<[Chapter]> {
-    const res = await fetch(ASPECT_URL);
+async function getChapters(url: string): Promise<[Chapter]> {
+    const res = await fetch(url);
     const body = await res.json();
 
     return body.chapters;

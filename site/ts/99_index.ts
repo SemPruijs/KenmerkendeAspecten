@@ -62,7 +62,7 @@ function backToChapterSelect(): void {
 
 // --- Runtime ---
 
-getChapters() 
+getChapters(ASPECT_URL) 
     .then((chapters: [Chapter]) =>{
         CHAPTERS = chapters
         renderUIMode(uimode)        
