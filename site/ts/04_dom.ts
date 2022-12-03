@@ -9,13 +9,14 @@ function hideCorrectness():void {
 
 function showCorrectness(userInput: string, mode:LearnMode, aspect: Aspect):void {
     const correctness = isCorrect(aspect, userInput, mode)
-    const message = messageAboutCorrectness(correctness, aspect, LearnMode.Id)
+    const message = messageAboutCorrectness(correctness, aspect, mode)
 
     document.getElementById("correctness").innerHTML = message
 }
 
-function renderNewAspect(aspect:Aspect):void {
-    document.getElementById("question").innerHTML = aspect.value
+function renderNewAspect(aspect:Aspect, mode: LearnMode):void {
+    const renderText = mode == LearnMode.Id ? aspect.value : aspect.id
+    document.getElementById("question").innerHTML = renderText
 }    
 
 function renderUIMode(mode: UIMode): void {

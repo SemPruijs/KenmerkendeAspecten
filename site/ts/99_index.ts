@@ -7,6 +7,7 @@ let showingCorrectness = false
 let order: Array<Aspect> | null = null
 let currentIndex = 0
 let uimode: UIMode = UIMode.ChapterSelect
+let learnMode: LearnMode = LearnMode.Id
 
 
 
@@ -49,7 +50,7 @@ function startLearning() {
     showingChapterSelectError(!allowLearning)
     console.log(allowLearning)
     if (allowLearning) {
-        renderNewAspect(order[currentIndex])
+        renderNewAspect(order[currentIndex], learnMode)
         setUIMode(UIMode.Learning)
         renderUIMode(uimode)
     }    
@@ -77,12 +78,12 @@ function answerTextfieldOnEnter(event: KeyboardEvent): void {
 
         if (!showingCorrectness) {            
             showingCorrectness = true
-            showCorrectness(userInput, LearnMode.Id, order[currentIndex])
+            showCorrectness(userInput, learnMode, order[currentIndex])
             setAspect()
         } else {
             showingCorrectness = false
             hideCorrectness()
-            renderNewAspect(order[currentIndex])
+            renderNewAspect(order[currentIndex], learnMode)
         }        
     }
 }
