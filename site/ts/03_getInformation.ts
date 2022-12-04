@@ -56,7 +56,18 @@ function isCorrect(aspect:Aspect, input:string, mode: LearnMode): boolean {
 }
 
 function removeSpellMistakes(input:string):string {
-    return input.toUpperCase()
+    const inputWithoutUselessCharacters = input.replace(/[,._-]/g, "")
+    const upperInput = inputWithoutUselessCharacters.toUpperCase()
+    const words = upperInput.split(" ")
+    const wordsWithoutUseless = words.filter((word)=> isUsefulWord(word))
+    const result = wordsWithoutUseless.reduce((previous, current) => previous + current)
+    console.log(result)
+    return result
+}
+
+function isUsefulWord(word: string): boolean {
+    const uselessWords = ["de", "het", "een", "van", "en"]
+    return !uselessWords.map((word)=>word.toUpperCase()).includes(word.toUpperCase())
 }
 
 function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode:LearnMode): string {
