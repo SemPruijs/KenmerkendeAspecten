@@ -52,7 +52,11 @@ function generateNewOrder(oldOrder: Array<Aspect>): Array<Aspect> {
 
 function isCorrect(aspect:Aspect, input:string, mode: LearnMode): boolean {        
     const correctAnswer = mode == LearnMode.Value ? aspect.value : aspect.id
-    return correctAnswer == input    
+    return removeSpellMistakes(correctAnswer)  == removeSpellMistakes(input)    
+}
+
+function removeSpellMistakes(input:string):string {
+    return input.toUpperCase()
 }
 
 function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode:LearnMode): string {
