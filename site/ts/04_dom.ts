@@ -3,6 +3,11 @@ function clearTextField(): void {
     textField.value = ""
 }
 
+function getLearningMode(): LearnMode {
+    const learnModeString = (document.getElementById("learning-mode") as HTMLSelectElement).value
+    return learnModeString == "aspect" ? LearnMode.Value : LearnMode.Id
+}
+
 function hideCorrectness():void {
     document.getElementById("correctness").innerHTML = ""
 }

@@ -27,6 +27,10 @@ function setUIMode(mode: UIMode) {
     uimode = mode
 }
 
+function setLearningMode(mode: LearnMode):void {
+    learnMode = mode
+}
+
 function setChapter(checkbox: HTMLInputElement)
 {
     const chapterIndex = Number(checkbox.id)
@@ -48,8 +52,8 @@ function setChapter(checkbox: HTMLInputElement)
 function startLearning() {
     const allowLearning = SELECTED_CHAPTERS.length > 0
     showingChapterSelectError(!allowLearning)
-    console.log(allowLearning)
     if (allowLearning) {
+        setLearningMode(getLearningMode())
         renderNewAspect(order[currentIndex], learnMode)
         setUIMode(UIMode.Learning)
         renderUIMode(uimode)
