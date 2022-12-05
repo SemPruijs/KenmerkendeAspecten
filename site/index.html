@@ -23,12 +23,10 @@
         <h2>Selecteer de hoofdstukken om mee te leren</h2>
         <div id="checkbox-container"></div>
         <h2>Leren</h2>
-        <label for="learning-mode">Kies wat je wil leren</label>
-        <select name="learning-mode" id="learning-mode">
-            <option value="id">id</option>
-            <option value="aspect">aspect</option>
-        </select>
-        <button type="button" onclick="startLearning()" id="start-learning">Begin met leren</button>
+        <!-- enum is used here which is not supported by javascript -->
+        <!-- 0 means id, 1 means value -->
+        <button type="button" onclick="startLearning(0)" class="start-learning">leer ID</button>
+        <button type="button" onclick="(1)" class="start-learning">Leer aspect</button>
         <p id="error" role="alert"></p>
 
         <h3>Uitleg</h3>

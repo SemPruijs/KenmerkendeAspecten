@@ -3,10 +3,6 @@ function clearTextField(): void {
     textField.value = ""
 }
 
-function getLearningMode(): LearnMode {
-    const learnModeString = (document.getElementById("learning-mode") as HTMLSelectElement).value
-    return learnModeString == "aspect" ? LearnMode.Value : LearnMode.Id
-}
 
 function hideCorrectness():void {
     document.getElementById("correctness").innerHTML = ""
@@ -37,7 +33,11 @@ function showingChapterSelectError(visable: boolean): void {
 }
 
 function showAbleToLearnState(ableToLearn: boolean): void {
-    document.getElementById("start-learning").className = ableToLearn ? "highlighted-button" : ""
+    // document.getElementById("start-learning").className = ableToLearn ? "highlighted-button" : ""
+    const buttons = document.querySelectorAll(".start-learning")
+    // buttons.forEach( button => {button.className = ableToLearn ? "highlighted-button" : "" + " start-learning"})
+    const highlightString = ableToLearn ? "highlighted-button" : ""
+    buttons.forEach( button => {button.className = "start-learning " + highlightString})
 }
 
 

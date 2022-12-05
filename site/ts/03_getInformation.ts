@@ -61,7 +61,6 @@ function removeSpellMistakes(input:string):string {
     const words = upperInput.split(" ")
     const wordsWithoutUseless = words.filter((word)=> isUsefulWord(word))
     const result = wordsWithoutUseless.reduce((previous, current) => previous + current)
-    console.log(result)
     return result
 }
 

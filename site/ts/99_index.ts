@@ -49,11 +49,11 @@ function setChapter(checkbox: HTMLInputElement)
     showAbleToLearnState(SELECTED_CHAPTERS.length > 0)
 }
 
-function startLearning() {
+function startLearning(mode: LearnMode) {
     const allowLearning = SELECTED_CHAPTERS.length > 0
     showingChapterSelectError(!allowLearning)
     if (allowLearning) {
-        setLearningMode(getLearningMode())
+        setLearningMode(mode)
         renderNewAspect(order[currentIndex], learnMode)
         setUIMode(UIMode.Learning)
         renderUIMode(uimode)
