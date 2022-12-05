@@ -52,7 +52,21 @@ function generateNewOrder(oldOrder: Array<Aspect>): Array<Aspect> {
 
 function isCorrect(aspect:Aspect, input:string, mode: LearnMode): boolean {        
     const correctAnswer = mode == LearnMode.Value ? aspect.value : aspect.id
-    return correctAnswer == input    
+    return removeSpellMistakes(correctAnswer)  == removeSpellMistakes(input)    
+}
+
+function removeSpellMistakes(input:string):string {
+    const inputWithoutUselessCharacters = input.replace(/[,._-]/g, "")
+    const upperInput = inputWithoutUselessCharacters.toUpperCase()
+    const words = upperInput.split(" ")
+    const wordsWithoutUseless = words.filter((word)=> isUsefulWord(word))
+    const result = wordsWithoutUseless.reduce((previous, current) => previous + current)
+    return result
+}
+
+function isUsefulWord(word: string): boolean {
+    const uselessWords = ["de", "het", "een", "van", "en"]
+    return !uselessWords.map((word)=>word.toUpperCase()).includes(word.toUpperCase())
 }
 
 function messageAboutCorrectness(correct: boolean, aspect:Aspect, mode:LearnMode): string {

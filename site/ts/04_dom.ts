@@ -3,19 +3,21 @@ function clearTextField(): void {
     textField.value = ""
 }
 
+
 function hideCorrectness():void {
     document.getElementById("correctness").innerHTML = ""
 }
 
 function showCorrectness(userInput: string, mode:LearnMode, aspect: Aspect):void {
     const correctness = isCorrect(aspect, userInput, mode)
-    const message = messageAboutCorrectness(correctness, aspect, LearnMode.Id)
+    const message = messageAboutCorrectness(correctness, aspect, mode)
 
     document.getElementById("correctness").innerHTML = message
 }
 
-function renderNewAspect(aspect:Aspect):void {
-    document.getElementById("question").innerHTML = aspect.value
+function renderNewAspect(aspect:Aspect, mode: LearnMode):void {
+    const renderText = mode == LearnMode.Id ? aspect.value : aspect.id
+    document.getElementById("question").innerHTML = renderText
 }    
 
 function renderUIMode(mode: UIMode): void {
@@ -31,7 +33,11 @@ function showingChapterSelectError(visable: boolean): void {
 }
 
 function showAbleToLearnState(ableToLearn: boolean): void {
-    document.getElementById("start-learning").className = ableToLearn ? "highlighted-button" : ""
+    // document.getElementById("start-learning").className = ableToLearn ? "highlighted-button" : ""
+    const buttons = document.querySelectorAll(".start-learning")
+    // buttons.forEach( button => {button.className = ableToLearn ? "highlighted-button" : "" + " start-learning"})
+    const highlightString = ableToLearn ? "highlighted-button" : ""
+    buttons.forEach( button => {button.className = "start-learning " + highlightString})
 }
 
 
