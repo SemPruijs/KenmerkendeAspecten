@@ -10,6 +10,11 @@
       imports = [];
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       perSystem = { config, self', inputs', pkgs, system, ... }: {
+        devShells = {
+          default = pkgs.mkShell {
+              buildInputs = with pkgs; [ nodePackages.typescript nodePackages.typescript-language-server];
+          };
+        };
         packages = rec {
           default = site;
           site = pkgs.stdenv.mkDerivation {
