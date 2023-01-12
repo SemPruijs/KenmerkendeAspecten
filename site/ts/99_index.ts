@@ -14,36 +14,34 @@ let learnMode: LearnMode = LearnMode.Id
 
 // --- State ---
 
-function setAspect():void {
+function setAspect(): void {
     if (currentIndex < order.length - 1) {
         currentIndex++
     } else {
         order = generateNewOrder(order)
         currentIndex = 0
-    } 
+    }
 }
 
 function setUIMode(mode: UIMode) {
     uimode = mode
 }
 
-function setLearningMode(mode: LearnMode):void {
+function setLearningMode(mode: LearnMode): void {
     learnMode = mode
 }
 
-function setChapter(checkbox: HTMLInputElement)
-{
+function setChapter(checkbox: HTMLInputElement) {
     const chapterIndex = Number(checkbox.id)
-    if (checkbox.checked)
-    {
+    if (checkbox.checked) {
         SELECTED_CHAPTERS.push(chapterIndex)
         order = shuffle(listAspectsFromChapters(indexesToChapters(SELECTED_CHAPTERS, CHAPTERS)))
     } else {
         const index = SELECTED_CHAPTERS.indexOf(chapterIndex, 0);
-        if (index > -1) {
-            SELECTED_CHAPTERS.splice(index, 1);
-        } else {
-            console.log("Something whent wrong")
+        SELECTED_CHAPTERS.splice(index, 1);
+
+        if (index > 0) {
+            order = shuffle(listAspectsFromChapters(indexesToChapters(SELECTED_CHAPTERS, CHAPTERS)))
         }
     }
     showAbleToLearnState(SELECTED_CHAPTERS.length > 0)
@@ -57,7 +55,7 @@ function startLearning(mode: LearnMode) {
         renderNewAspect(order[currentIndex], learnMode)
         setUIMode(UIMode.Learning)
         renderUIMode(uimode)
-    }    
+    }
 }
 
 function backToChapterSelect(): void {
@@ -67,20 +65,20 @@ function backToChapterSelect(): void {
 
 // --- Runtime ---
 
-getChapters(ASPECT_URL) 
-    .then((chapters: [Chapter]) =>{
+getChapters(ASPECT_URL)
+    .then((chapters: [Chapter]) => {
         CHAPTERS = chapters
-        renderUIMode(uimode)        
+        renderUIMode(uimode)
         renderChapterselect(CHAPTERS)
     })
 
 // Runs when the user presses enter
 function answerTextfieldOnEnter(event: KeyboardEvent): void {
-    if (event.key == "Enter") {        
+    if (event.key == "Enter") {
         const userInput = (document.getElementById("answerTextfield") as HTMLInputElement).value
-        clearTextField()                
+        clearTextField()
 
-        if (!showingCorrectness) {            
+        if (!showingCorrectness) {
             showingCorrectness = true
             showCorrectness(userInput, learnMode, order[currentIndex])
             setAspect()
@@ -88,7 +86,7 @@ function answerTextfieldOnEnter(event: KeyboardEvent): void {
             showingCorrectness = false
             hideCorrectness()
             renderNewAspect(order[currentIndex], learnMode)
-        }        
+        }
     }
 }
 
