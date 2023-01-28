@@ -17,16 +17,12 @@ body {
     padding: 40pt;
 }
 
-.no-answer-yet {
-    background-color: rgb(17, 3, 55);
-}
-
 .correct-answer {
-    background-color: green;
+    background-color: rgb(11, 62, 4);
 }
 
 .incorrect-answer {
-    background-color: red;
+    background-color: rgb(62, 4, 4);
 }
 
 
