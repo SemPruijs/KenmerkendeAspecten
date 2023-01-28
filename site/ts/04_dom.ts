@@ -18,12 +18,12 @@ function showCorrectness(userInput: string, mode: LearnMode, aspect: Aspect): vo
 }
 
 function showCorrectnessWithColor(correctness: boolean): void {
-    let learningContainer = document.getElementById("learning-container")
+    let learningContainer = document.getElementById("body")
     learningContainer.className = correctness ? "correct-answer" : "incorrect-answer"
 }
 
 function clearColorCorrectness(): void {
-    let learningContainer = document.getElementById("learning-container")
+    let learningContainer = document.getElementById("body")
     learningContainer.className = ""
 }
 
