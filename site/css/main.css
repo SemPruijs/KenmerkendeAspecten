@@ -14,12 +14,24 @@ body {
 #chapter-select-container {
     font-size: 20pt;
     background-color: rgb(17, 3, 55);
-    padding: 40pt;    
+    padding: 40pt;
+}
+
+.no-answer-yet {
+    background-color: rgb(17, 3, 55);
+}
+
+.correct-answer {
+    background-color: green;
+}
+
+.incorrect-answer {
+    background-color: red;
 }
 
 
 ul {
-    list-style-type: none;    
+    list-style-type: none;
 }
 
 li {
@@ -47,7 +59,7 @@ button {
 }
 
 .highlighted-button {
-    background-color: #3b88fd; 
+    background-color: #3b88fd;
     border: none;
     color: white;
     padding: 10px 30px;
@@ -90,5 +102,3 @@ input {
     font-size: 20pt;
     color: white;
 }
-
-
