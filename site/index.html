@@ -8,8 +8,8 @@
     <script src="ts/index.js"></script>
 
     <!-- Load fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500;700&display=swap" rel="stylesheet">
 
     <!-- Load css -->
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./css/checkbox.css">
 </head>
 
-<body>
+<body id="body">
     <div id="chapter-select-container">
         <h1>Kenmerkende Aspecten</h1>
         <h2>Selecteer de hoofdstukken om mee te leren</h2>
@@ -32,10 +32,14 @@
         <h3>Uitleg</h3>
         <p>Kies je hoofdstukken om mee te leren. Je kunt met 1 hoofdstuk leren, of meerdere tegelijk. </p>
         <p>Tijdens het leren komt er een aspect tevoorschijn. Jouw taak is om het "ID" te geven.</p>
-        <p>Het "ID" van een aspect is het hoofdstuk van het aspect getypd met nummers gevolgd door een letter om de chronologische volgorde aan te geven.</p>
-        <p>Voorbeeld 1: Het aspect is: De ontwikkeling van landbouw en landbouwsamenlevingen. Het ID van dit aspect is 1b. Want dit aspect komt uit hoofdstuk 1, en het is het 2e aspect, dus een b.</p>
-        <p>Voorbeeld 2: Het aspect is: De verspreiding van het christendom in geheel Europa. Het ID van dit aspect is 3a. Want dit aspect komt uit hoofdstuk 3, en het is het 1e aspect, dus een a.</p>
-        <p>Als je jouw antwoord hebt ingevuld, druk je op enter. Dan zie je of je het goede antwoord hebt gegeven of dat je het fout hebt gedaan en wat het goede antwoord moest zijn.</p>
+        <p>Het "ID" van een aspect is het hoofdstuk van het aspect getypd met nummers gevolgd door een letter om de
+            chronologische volgorde aan te geven.</p>
+        <p>Voorbeeld 1: Het aspect is: De ontwikkeling van landbouw en landbouwsamenlevingen. Het ID van dit aspect is
+            1b. Want dit aspect komt uit hoofdstuk 1, en het is het 2e aspect, dus een b.</p>
+        <p>Voorbeeld 2: Het aspect is: De verspreiding van het christendom in geheel Europa. Het ID van dit aspect is
+            3a. Want dit aspect komt uit hoofdstuk 3, en het is het 1e aspect, dus een a.</p>
+        <p>Als je jouw antwoord hebt ingevuld, druk je op enter. Dan zie je of je het goede antwoord hebt gegeven of dat
+            je het fout hebt gedaan en wat het goede antwoord moest zijn.</p>
         <p>Op deze manier hoor je vaak de aspecten, en je word behendig met met het onthouden van de volgorde.</p>
 
         <h2>ideeën of fouten?</h2>
@@ -56,7 +60,8 @@
 
         <!-- Text field for user answer -->
         <div class="answer">
-            <input type=”text” placeholder="Jouw antwoord" id="answerTextfield" onkeypress="answerTextfieldOnEnter(event)">
+            <input type=”text” placeholder="Jouw antwoord" id="answerTextfield"
+                onkeypress="answerTextfieldOnEnter(event)">
         </div>
     </div>
 </body>

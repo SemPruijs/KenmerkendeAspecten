@@ -4,31 +4,43 @@ function clearTextField(): void {
 }
 
 
-function hideCorrectness():void {
+function hideCorrectness(): void {
+    clearColorCorrectness()
     document.getElementById("correctness").innerHTML = ""
 }
 
-function showCorrectness(userInput: string, mode:LearnMode, aspect: Aspect):void {
+function showCorrectness(userInput: string, mode: LearnMode, aspect: Aspect): void {
     const correctness = isCorrect(aspect, userInput, mode)
     const message = messageAboutCorrectness(correctness, aspect, mode)
+    showCorrectnessWithColor(correctness)
 
     document.getElementById("correctness").innerHTML = message
 }
 
-function renderNewAspect(aspect:Aspect, mode: LearnMode):void {
+function showCorrectnessWithColor(correctness: boolean): void {
+    let learningContainer = document.getElementById("body")
+    learningContainer.className = correctness ? "correct-answer" : "incorrect-answer"
+}
+
+function clearColorCorrectness(): void {
+    let learningContainer = document.getElementById("body")
+    learningContainer.className = ""
+}
+
+function renderNewAspect(aspect: Aspect, mode: LearnMode): void {
     const renderText = mode == LearnMode.Id ? aspect.value : aspect.id
     document.getElementById("question").innerHTML = renderText
-}    
+}
 
 function renderUIMode(mode: UIMode): void {
     const learningClass = mode == UIMode.ChapterSelect ? "hidden" : ""
     const chapterSelectClass = mode == UIMode.ChapterSelect ? "" : "hidden"
 
     document.getElementById("chapter-select-container").className = chapterSelectClass
-    document.getElementById("learning-container").className = learningClass    
+    document.getElementById("learning-container").className = learningClass
 }
 
-function showingChapterSelectError(visable: boolean): void {    
+function showingChapterSelectError(visable: boolean): void {
     document.getElementById("error").innerHTML = visable ? "Selecteer minstens 1 hoofdstuk" : ""
 }
 
@@ -37,7 +49,7 @@ function showAbleToLearnState(ableToLearn: boolean): void {
     const buttons = document.querySelectorAll(".start-learning")
     // buttons.forEach( button => {button.className = ableToLearn ? "highlighted-button" : "" + " start-learning"})
     const highlightString = ableToLearn ? "highlighted-button" : ""
-    buttons.forEach( button => {button.className = "start-learning " + highlightString})
+    buttons.forEach(button => { button.className = "start-learning " + highlightString })
 }
 
 
@@ -64,7 +76,7 @@ function renderChapterselect(chapters: Array<Chapter>) {
         li.appendChild(label)
 
         ul.appendChild(li)
-    }    
+    }
 
     container.appendChild(ul)
 }
