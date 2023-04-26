@@ -65,7 +65,7 @@ function removeSpellMistakes(input:string):string {
 }
 
 function isUsefulWord(word: string): boolean {
-    const uselessWords = ["de", "het", "een", "van", "en"]
+    const uselessWords = ["de", "het", "een", "van", "en", "op", "dat"]
     return !uselessWords.map((word)=>word.toUpperCase()).includes(word.toUpperCase())
 }
 
